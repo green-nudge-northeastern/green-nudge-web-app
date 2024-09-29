@@ -16,15 +16,19 @@ This page briefly introduces how to set up the development environment and run t
 It may be helpful to understand the following concepts to proceed with the development of the web app:
 
 - **What is Node.js?**
+
     Node.js is a server-side JavaScript runtime environment that executes JavaScript code.
 
 - **What is React?**
+
     React is a front-end framework for creating a user interface (UI).
 
 - **What is npm?**
+
     `npm` is the default package manager for Node.js. A package manager makes it easier to publish and share Node.js source code libraries. The npm package manager simplifies library installation, updating, and uninstallation.
 
 - **Conventions for git commit messages**
+
     It's a good practice to follow some conventions when writing commit messages. Typically, the commits should be prefixed with a type, such as `feat`, `build`, `fix`, `docs`, `style`, `refactor`, `test`, or `chore`. 
     
     For example:
@@ -37,6 +41,22 @@ It may be helpful to understand the following concepts to proceed with the devel
     These conventions are completely optional in our case, but I would highly recommend following them 😊!
     
     If you'd like to know more about the conventions, you can check out: [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+
+- **What is our authentication strategy?**
+
+    To onboard users, we need to implement authentication, providing the feature to sign up, log in, and log out.
+
+    For now, I chose to use ***Google Firebase*** for the web app since it's free and easy to set up and link to our custom log-in page. You can check out the [Firebase Authentication documentation](https://firebase.google.com/docs/auth) to learn more about it.
+
+    Yuning's credentials are already set up and shared in `services/firebaseConfig.js`. Feel free to use them for now, but we can create a new Firebase project and set up new credentials later.
+
+    Some other popular authentication strategies include ***Auth0***, ***JWT***, and ***AWS Cognito***. We can discuss and decide on the best strategy for our project in the future.
+
+- **How do we manage our dependencies or the development environment?**
+
+    As we mentioned above, we use `npm` to manage our dependencies. The `package.json` file in the `client/` directory lists all the dependencies required for the front-end project. When you run `npm install`, npm installs all the dependencies listed in the `package.json` file.
+    
+    On the other hand, whenever you install a new package using `npm install <package-name>`, npm automatically updates the `package.json` file with the new package and its version. Just make sure to commit the updated `package.json` file to the repository every time you introduce a new library or dependency.
 
 
 # Understanding the Project Structure
@@ -76,6 +96,7 @@ The `client/` directory contains the front-end code, and the `api/` directory co
 To get started with the project, follow these steps:
 
 1. **Clone the repository:**
+
     ```bash
     git clone https://github.com/green-nudge-northeastern/green-nudge-web-app.git
     ```
@@ -83,6 +104,7 @@ To get started with the project, follow these steps:
     <p> <br> </p>
 
 2. **Install Node.js and npm:**
+
     To check if you have Node.js and npm installed, run the following commands in your terminal. The version numbers should appear:
     ```bash
     node -v
@@ -98,6 +120,7 @@ To get started with the project, follow these steps:
     <p> <br> </p>
 
 3. **Install the project dependencies:**
+
     When you have Node.js and npm installed, navigate to the frontend directory:
     ```bash
     cd client/
@@ -113,6 +136,7 @@ To get started with the project, follow these steps:
     <p> <br> </p>
 
 4. **Run the front-end project:**
+
     To run the front-end project, use the following command:
     ```bash
     npm start
@@ -121,11 +145,22 @@ To get started with the project, follow these steps:
 
     <p> <br> </p>
 
+Now you should be able to see the front-end page running in your browser. If you see any errors or have any questions, please feel free to ask me!
+
 # What next?
 
 Now that you have the front-end project running, you can start developing the web app. You can make changes to the code in the `client/` directory and see the changes reflected in the browser.
 
-Here are just my two cents on what you can do next:
+Here are just my two cents on what we can do next:
+
+1. **Understand the code structure:**
+
+    Take some time to understand the code structure and the different directories in the `client/` directory. You can start by looking at the `src/` directory, which contains the main source files for the React app. Feel free to raise any suggestions or questions you have about the code structure, since I'm also learning and open to feedback.
+
+2. **Refactor the UI/UX design:**
+
+    Since an interactive prototype was not provided, also, some of the layouts and designs are not practical, we can start by refactoring the UI/UX design. Let's discuss the design changes and improvements we want to make to the web app, and confirm with Sneha.
+
 
 
 

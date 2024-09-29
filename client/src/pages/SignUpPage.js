@@ -1,15 +1,31 @@
 import React, { useState } from 'react';
-import './AuthPage.css'; // Import the shared CSS file
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { auth } from '../services/firebaseConfig'; // Import the Firebase auth object
+import './AuthPage.css';
+import { useNavigate } from 'react-router-dom';
 
 const SignUpPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [username, setUsername] = useState('');
+  const [fullName, setFullName] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate(); // Hook for navigation
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Prevent form submission logic for now
+    try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+
+        await updateProfile(user, {
+            displayName: fullName,
+        });
+
+        // Redirect to the homepage
+        navigate('/');
+    } catch (err) {
+         setError(`Failed to create an account: ${err.message}`);
+    }
   };
 
   return (
@@ -17,13 +33,13 @@ const SignUpPage = () => {
       <h1 className="auth-title">Create New Account</h1>
       <p className="auth-link-text">Already Registered? <a href="/login">Log In</a></p>
       <form className="auth-form" onSubmit={handleSubmit}>
-        <label className="auth-label" htmlFor="username">Full Name</label>
+        <label className="auth-label" htmlFor="fullName">Full Name</label>
         <input
-          id="username"
+          id="fullName"
           className="auth-input"
           type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={fullName}
+          onChange={(e) => setFullName(e.target.value)}
           placeholder="Full Name"
           required
         />

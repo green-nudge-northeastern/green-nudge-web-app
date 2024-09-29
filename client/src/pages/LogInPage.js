@@ -1,14 +1,23 @@
 import React, { useState } from 'react';
-import './AuthPage.css'; // Import the shared CSS file
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
+import { auth } from '../services/firebaseConfig';
+import './AuthPage.css';
 
 const LogInPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleLogIn = async (e) => {
     e.preventDefault();
-    // Prevent form submission logic for now
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate('/'); // Redirect to home after successful login
+    } catch (err) {
+      setError('Invalid email or password');
+    }
   };
 
   return (
