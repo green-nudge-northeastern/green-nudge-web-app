@@ -1,0 +1,50 @@
+.content-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin: 80px auto;
+  max-width: 1200px;
+}
+
+.section-image {
+  width: 360px;
+}
+
+.section-text {
+  max-width: 900px;
+  color: #d1e6d1;
+  text-align: center;
+}
+
+h1 {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+p {
+  color: white;
+  font-size: 35px;
+  line-height: 1.6;
+}
+
+.slogan-highlight {
+  color: #48fc8c;
+  font-weight: bold;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.6s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateX(0);
+}

@@ -1,0 +1,76 @@
+.navbar {
+    /* background-color: #115d46; */
+    padding: 20px 100px 0 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Verdana, sans-serif;
+}
+
+/* Logo Image */
+.navbar-icon img {
+    width: 100px;
+}
+
+/* Flex container for links and buttons */
+.navbar-links-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px; /* Adjust spacing between links and buttons */
+}
+
+/* Links */
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 60px; /* Adjust spacing between the links */
+}
+
+.navbar-links li a {
+    font-size: 22px;
+    display: inline-block;
+    color: #d1e6d1;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.navbar-links li a:hover {
+    transform: translateY(-5px);
+    color: #48fc8c;
+}
+
+/* Buttons */
+.navbar-buttons {
+    display: flex;
+    gap: 18px;
+}
+
+.signin-button, .signup-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* Styling for Log In (Sign In) button */
+.signin-button {
+    background-color: rgb(112, 220, 153);
+    color: #223822;
+}
+
+.signin-button:hover {
+    background-color: #269e5c;
+}
+
+/* Styling for Sign Up button */
+.signup-button {
+    background-color: #fff;
+    color: #223822;
+}
+
+.signup-button:hover {
+    background-color: rgb(188, 188, 188);
+}
