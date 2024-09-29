@@ -1,0 +1,47 @@
+
+/* Third party container styling */
+.third-party-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Third party text styling */
+.third-party-text {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Third party button styling */
+.third-party-button {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background-color: #fff;
+    color: #223822;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    width: 90%;
+    justify-content: center;
+}
+
+.third-party-button:hover {
+    background-color: #c5c5c5;
+}
+
+/* Icon styling */
+.third-party-icon {
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+/* LinkedIn icon specific styling */
+.linkedin-icon {
+    color: #0077b5;
+}

@@ -30,3 +30,25 @@
 .auth-link-text a:hover {
     text-decoration: underline;
 }
+
+
+/* column-layout for the form */
+.auth-columns-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 40px; /* Adjust spacing between the two columns */
+    margin-top: 20px;
+}
+
+/* Each column */
+.auth-column {
+    width: 300px; /* Set a fixed width for the columns */
+}
+
+/* Vertical line separator */
+.vertical-separator {
+    width: 1px;
+    background-color: #719f83; /* Set the color of the line */
+
+}
