@@ -1,0 +1,30 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { getAltImage } from '../../services/userUtils';
+import profileIcon from '../../assets/profile_icon_200x200.png'; // Default profile icon
+import './ProfileDropdown.css'; // Import the new CSS file for this component
+
+const ProfileDropdown = ({ user, handleLogout }) => {
+  return (
+    <div className="profile-menu-container">
+      <img src={profileIcon} alt="Profile" className="profile-icon" />
+      <div className="profile-dropdown">
+        {user && (
+          <div className="profile-header">
+            <img 
+              src={getAltImage(user.photoURL, user.displayName)}
+              alt="Profile" 
+              className="profile-dropdown-pic" 
+            />
+            <p className="profile-dropdown-name">{user.displayName || 'User'}</p>
+          </div>
+        )}
+
+        <Link to="/profile" className="menu-item">Profile</Link>
+        <button className="menu-item" onClick={handleLogout}>Log Out</button>
+      </div>
+    </div>
+  );
+};
+
+export default ProfileDropdown;
