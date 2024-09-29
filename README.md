@@ -1,11 +1,10 @@
-# green-nudge-web-app
+# Green Nudge Web Development Page
 
 This page briefly introduces how to set up the development environment and run the web app. It is using React.js as the front-end framework and Node.js as the back-end server.
 
 
-## Table of Contents
-- [green-nudge-web-app](#green-nudge-web-app)
-  - [Table of Contents](#table-of-contents)
+**Table of Contents:**
+- [Green Nudge Web Development Page](#green-nudge-web-development-page)
 - [Concepts and Resources](#concepts-and-resources)
 - [Understanding the Project Structure](#understanding-the-project-structure)
 - [Getting Started](#getting-started)
@@ -24,6 +23,20 @@ It may be helpful to understand the following concepts to proceed with the devel
 
 - **What is npm?**
     `npm` is the default package manager for Node.js. A package manager makes it easier to publish and share Node.js source code libraries. The npm package manager simplifies library installation, updating, and uninstallation.
+
+- **Conventions for git commit messages**
+    It's a good practice to follow some conventions when writing commit messages. Typically, the commits should be prefixed with a type, such as `feat`, `build`, `fix`, `docs`, `style`, `refactor`, `test`, or `chore`. 
+    
+    For example:
+    ```
+    feat: Add the forgot password feature to the login page
+    fix: Fix the error message when user fails to login
+    docs: Update README.md with getting started instructions
+    ```
+
+    These conventions are completely optional in our case, but I would highly recommend following them 😊!
+    
+    If you'd like to know more about the conventions, you can check out: [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 
 
 # Understanding the Project Structure
