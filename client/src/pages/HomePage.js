@@ -1,13 +1,13 @@
 import React from 'react';
 import './HomePage.css';
-import HomeSection from '../components/layout/HomeSection';
+import FadeInSection from '../components/layout/FadeInSection';
 import shapes from '../assets/shapes_1000x1000.png';
 
 function HomePage() {
   return (
     <div className="homepage">
 
-      <HomeSection
+      <FadeInSection
         imageSrc={shapes}
         heading="Discover a smarter way to source responsibly."
       >
@@ -15,9 +15,9 @@ function HomePage() {
           Champion a resilient supply chain that maximizes efficiency while boldly seizing 
           market opportunities through sustainable innovation.
         </p>
-      </HomeSection>
+      </FadeInSection>
 
-      <HomeSection
+      <FadeInSection
         textAlign='center'
       >
         <h2>
@@ -28,7 +28,7 @@ function HomePage() {
           'Do <span className="slogan-highlight">more</span> with 
           <span className="slogan-highlight"> less</span>'
         </h2>
-      </HomeSection>
+      </FadeInSection>
 
     </div>
   );

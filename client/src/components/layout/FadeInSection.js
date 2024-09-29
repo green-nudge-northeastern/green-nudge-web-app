@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import './HomeSection.css';  // Styles for the section
+import './FadeInSection.css';  // Styles for the section
 
-function HomeSection({ imageSrc, heading, children, textAlign = 'left' }) {
+function FadeInSection({ imageSrc, heading, children, textAlign = 'left' }) {
   useEffect(() => {
     const sections = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries, observer) => {
@@ -31,4 +31,4 @@ function HomeSection({ imageSrc, heading, children, textAlign = 'left' }) {
   );
 }
 
-export default HomeSection;
+export default FadeInSection;
