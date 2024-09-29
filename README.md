@@ -2,6 +2,12 @@
 
 This page briefly introduces how to set up the development environment and run the web app. It is using React.js as the front-end framework and Node.js as the back-end server.
 
+**Current Page Layout Preview**
+
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/f1851f32-ac86-47fb-be7e-0ce6f4bf6b22">
+
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/68e80d99-60b0-4f7e-a52c-d63d0f7a3a4a">
+
 
 **Table of Contents:**
 - [Green Nudge Web Development Page](#green-nudge-web-development-page)
