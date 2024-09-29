@@ -52,9 +52,13 @@
 
 /* Error text styling */
 .auth-error-text {
-    color: red;
-    font-size: 14px;
+    color: #ff4a4a;
+    text-align: center;
+    font-size: 16px;
     margin-top: 10px;
+    padding: 10px;
+    min-height: 20px;
+    visibility: visible;
 }
 
 

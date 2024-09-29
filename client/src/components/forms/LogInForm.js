@@ -16,12 +16,31 @@ const LogInForm = () => {
       await signInWithEmailAndPassword(auth, email, password);
       navigate('/'); // Redirect to home after successful login
     } catch (err) {
-      setError('Invalid email or password');
+      // set specific login error messages
+      // for reference, check out error codes here: 
+      // https://firebase.google.com/docs/auth/admin/errors
+      switch (err.code) {
+        case 'auth/invalid-email':
+          setError('Invalid email address.');
+          break;
+        case 'auth/user-disabled':
+          setError('This user account has been disabled. Please contact support.');
+          break;
+        case 'auth/user-not-found':
+          setError('User not found. Please check your email or sign up.');
+          break;
+        case 'auth/invalid-credential':
+          setError('Invalid credentials. Please check your email or password.');
+          break;
+        default:
+          setError(`Login failed. Please contact support with error code: ${err.code}`);
+      }
     }
   };
 
   return (
-    <form className="auth-form" onSubmit={handleLogIn}>
+    // disabled HTML5 validation
+    <form className="auth-form" onSubmit={handleLogIn} noValidate> 
       <label className="auth-label" htmlFor="email">Email</label>
       <input
         id="email"
@@ -45,7 +64,11 @@ const LogInForm = () => {
       />
 
       <button className="auth-button" type="submit">Log In</button>
-      {error && <p className="auth-error-text">{error}</p>}
+      {error ? (
+        <p className="auth-error-text">{error}</p>
+      ) : (
+        <p className="auth-error-text" style={{ visibility: 'hidden' }}>No error</p>
+      )}
     </form>
   );
 };

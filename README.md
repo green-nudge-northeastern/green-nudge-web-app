@@ -67,7 +67,7 @@ It may be helpful to understand the following concepts to proceed with the devel
 
 # Understanding the Project Structure
 
-The project structure is as follows (subject to change). Most of the files or the naming conventions are just standard practices, so please don't worry about them too much. We'll mostly focus on some specific implementations in the future.
+The project structure is as follows (subject to change). Most of the files or the naming conventions are just standard practices, so please don't worry too much about them. We'll mostly focus on some specific implementations in `client/src/` for front-end in the future.
 
 ```plaintext
 GREEN-NUDGE-WEB-APP

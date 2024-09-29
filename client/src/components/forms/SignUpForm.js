@@ -25,7 +25,22 @@ const SignUpForm = () => {
       // Redirect to the homepage after successful sign-up
       navigate('/');
     } catch (err) {
-      setError(`Failed to create an account: ${err.message}`);
+      // set specific signup error messages
+      // for reference, check out error codes here: 
+      // https://firebase.google.com/docs/auth/admin/errors
+      switch (err.code) {
+        case 'auth/invalid-email':
+          setError('Invalid email address.');
+          break;
+        case 'auth/email-already-in-use':
+          setError('Email already in use. Please log in or reset your password.');
+          break;
+        case 'auth/invalid-password':
+          setError('Invalid password. Password must be at least 6 characters.');
+          break;
+        default:
+          setError(`Sign-up failed. Please contact support with error code: ${err.code}`);
+      }
     }
   };
 
@@ -65,7 +80,11 @@ const SignUpForm = () => {
       />
 
       <button className="auth-button" type="submit">Sign Up</button>
-      {error && <p className="auth-error-text">{error}</p>}
+      {error ? (
+        <p className="auth-error-text">{error}</p>
+      ) : (
+        <p className="auth-error-text" style={{ visibility: 'hidden' }}>No error</p>
+      )}
     </form>
   );
 };
