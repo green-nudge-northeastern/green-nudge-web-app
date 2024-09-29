@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { auth } from '../../services/firebaseConfig'; // Import Firebase auth
-import { signOut, onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth'; // Remove signOut here
 import './NavBar.css';
 import green_nudge_icon from '../../assets/icon_700x700.png';
 import ProfileDropdown from './ProfileDropdown'; // Import the ProfileDropdown component
@@ -15,12 +15,6 @@ function NavBar() {
     });
     return () => unsubscribe(); // Cleanup subscription on unmount
   }, []);
-
-  const handleLogout = () => {
-    signOut(auth)
-      .then(() => setUser(null))
-      .catch((error) => console.error('Logout failed', error));
-  };
 
   return (
     <nav className="navbar">
@@ -37,7 +31,8 @@ function NavBar() {
         </ul>
         <div className="navbar-buttons">
           {user ? (
-            <ProfileDropdown user={user} handleLogout={handleLogout} />
+            // Pass the user to ProfileDropdown and handle logout inside ProfileDropdown
+            <ProfileDropdown user={user} />
           ) : (
             <>
               <Link to="/login">

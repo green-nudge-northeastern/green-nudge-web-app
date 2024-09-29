@@ -1,10 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../services/firebaseConfig'; // Import Firebase auth for signOut
 import { getAltImage } from '../../services/userUtils';
 import profileIcon from '../../assets/profile_icon_200x200.png'; // Default profile icon
 import './ProfileDropdown.css'; // Import the new CSS file for this component
 
-const ProfileDropdown = ({ user, handleLogout }) => {
+const ProfileDropdown = ({ user }) => {
+  const handleLogout = () => {
+    signOut(auth)
+      .catch((error) => console.error('Logout failed', error));
+  };
+
   return (
     <div className="profile-menu-container">
       <img src={profileIcon} alt="Profile" className="profile-icon" />

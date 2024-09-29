@@ -61,20 +61,20 @@
 
 /* Styling for Log In (Sign In) button */
 .login-button {
-    background-color: rgb(112, 220, 153);
-    color: #223822;
-}
-
-.login-button:hover {
-    background-color: #269e5c;
-}
-
-/* Styling for Sign Up button */
-.signup-button {
     background-color: #fff;
     color: #223822;
 }
 
-.signup-button:hover {
+.login-button:hover {
     background-color: rgb(188, 188, 188);
+}
+
+/* Styling for Sign Up button */
+.signup-button {
+    background-color: rgb(112, 220, 153);
+    color: #223822;
+}
+
+.signup-button:hover {
+    background-color: #269e5c;
 }
