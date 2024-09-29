@@ -46,7 +46,7 @@
     gap: 18px;
 }
 
-.signin-button, .signup-button {
+.login-button, .signup-button {
     padding: 12px 25px;
     border: none;
     border-radius: 10px;
@@ -56,12 +56,12 @@
 }
 
 /* Styling for Log In (Sign In) button */
-.signin-button {
+.login-button {
     background-color: rgb(112, 220, 153);
     color: #223822;
 }
 
-.signin-button:hover {
+.login-button:hover {
     background-color: #269e5c;
 }
 
