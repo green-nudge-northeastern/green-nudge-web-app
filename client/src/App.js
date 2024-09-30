@@ -5,6 +5,8 @@ import LogInPage from './pages/LogInPage';
 import SignUpPage from './pages/SignUpPage';
 import NavBar from './components/layout/NavBar';
 import LaunchPage from './pages/LaunchPage';
+import ProtectedRoute from './components/auth/ProtectedRoute'; // Import the protected route component
+
 
 function App() {
   return (
@@ -15,7 +17,14 @@ function App() {
           <Route path="/" element={<HomePage />} />  
           <Route path="/login" element={<LogInPage />} /> 
           <Route path="/signup" element={<SignUpPage />} /> 
-          <Route path="/launch" element={<LaunchPage />} />
+          <Route
+            path="/launch"
+            element={
+              <ProtectedRoute>
+                <LaunchPage />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </div>
     </Router>

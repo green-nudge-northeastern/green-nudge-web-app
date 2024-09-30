@@ -1,10 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import LogInForm from '../components/forms/LogInForm'; // Import the LogInForm component
 import ThirdPartyAuthOptions from '../components/forms/ThirdPartyAuthOptions'; // Import social login options
 import './AuthPage.css';
 
 const LogInPage = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Get the location the user was trying to access before being redirected to the login page
+  const from = location.state?.from?.pathname || '/'; // Default to home if no previous page
+
+  // This will be called after successful login
+  const handleLoginSuccess = () => {
+    navigate(from, { replace: true }); // Redirect back to the previous page
+  };
+
   return (
     <div className="auth-container">
       <h1 className="auth-title">Log In</h1>
@@ -13,7 +24,7 @@ const LogInPage = () => {
       <div className="auth-columns-container">
         {/* Left column: Log-in form */}
         <div className="auth-column">
-          <LogInForm />
+          <LogInForm onLoginSuccess={handleLoginSuccess} />
         </div>
 
         {/* Vertical line separator */}

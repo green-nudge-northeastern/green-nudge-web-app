@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
 import { auth } from '../../services/firebaseConfig';
 import './AuthForm.css';
 
-const LogInForm = () => {
+const LogInForm = ({ onLoginSuccess }) => { // Accept the onLoginSuccess prop
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate();
 
   const handleLogIn = async (e) => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate('/'); // Redirect to home after successful login
+      
+      // Call onLoginSuccess after a successful login
+      onLoginSuccess();
     } catch (err) {
       // set specific login error messages
       // for reference, check out error codes here: 
