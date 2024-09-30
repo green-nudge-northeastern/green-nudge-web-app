@@ -1,0 +1,44 @@
+.launch-page {
+    padding: 20px;
+    background-color: #13894a;
+    color: white;
+    min-height: 100vh;
+    padding: 5% 18%;
+}
+
+.launch-title {
+    width: 80%;
+    font-size: 4rem;
+    font-weight: bold;
+    color: #9dff8a;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.launch-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* Grid layout for questions and options */
+.launch-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Two equal columns */
+    gap: 40px;
+    /* Spacing between questions and options */
+}
+
+.launch-questions {
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.launch-options-description {
+    margin: 25px 0;
+    font-size: 22px;
+    text-align: center;
+}

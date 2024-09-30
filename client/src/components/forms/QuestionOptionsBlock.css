@@ -1,0 +1,65 @@
+/* Styles for question block */
+.question-block {
+    cursor: pointer;
+}
+
+.question-block h2 {
+    background-color: #dbfce0;
+    width: 350px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 60px 0 30px;
+    text-align: center;
+    border-radius: 30px;
+    font-size: 1.5rem;
+    color: #1e392b;
+    margin: 8px 0;
+    position: relative; 
+}
+
+.question-block h2:hover {
+    background-color: #7eff9e;
+}
+
+.question-block.active h2::after {
+    content: '>';
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 3.6rem;
+    font-weight: normal;
+    position: absolute;
+    right: 25px;
+}
+
+.question-block.active h2 {
+    background-color: #7eff9e;
+}
+
+/* Styles for options block */
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Option button styling */
+.option-button {
+    background-color: #2E2F36;
+    text-align: center;
+    padding: 15px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.6rem;
+    transition: background-color 0.3s ease;
+}
+
+.option-button.selected {
+    background-color: #79ffd7;
+    font-weight: bold;
+    color: #1e392b;
+}
+
+.option-button:hover {
+    background-color: #1ABC9C;
+}
