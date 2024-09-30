@@ -2,14 +2,17 @@ import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../services/firebaseConfig';
+import LoadingSpinner from '../ui/LoadingSpinner'; // Import the spinner component
 
 const ProtectedRoute = ({ children }) => {
   const [user, loading] = useAuthState(auth); // Capture loading state as well
   const location = useLocation(); // Capture the location the user was trying to access
 
   if (loading) {
-    // While Firebase is checking the user, show a loading indicator (you can customize this)
-    return <div className="loading-indicator">Loading...</div>;
+    // Display the loading spinner while Firebase is checking the user
+    return (
+        <LoadingSpinner />
+    );
   }
 
   if (!user) {
