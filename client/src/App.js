@@ -6,6 +6,7 @@ import SignUpPage from './pages/SignUpPage';
 import NavBar from './components/layout/NavBar';
 import LaunchPage from './pages/LaunchPage';
 import ProtectedRoute from './components/auth/ProtectedRoute'; // Import the protected route component
+import Dashboard from './pages/Dashboard';
 
 
 function App() {
@@ -25,6 +26,15 @@ function App() {
               </ProtectedRoute>
             }
           />
+
+        <Route 
+          path="/dashboard" 
+          element={
+            <ProtectedRoute> {/* Use ProtectedRoute if it requires authentication */}
+              <Dashboard />
+            </ProtectedRoute>
+          } 
+        />
         </Routes>
       </div>
     </Router>
