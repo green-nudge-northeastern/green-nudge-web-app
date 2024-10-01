@@ -29,6 +29,7 @@ const ProfileDropdown = ({ user }) => {
 
         <Link to="/account" className="menu-item">Account</Link>
         <Link to="/dashboard" className="menu-item">Dashboard</Link>
+        <Link to="/launch" className="menu-item">Launch (beta)</Link>
         <button className="menu-item" onClick={handleLogout}>Log Out</button>
       </div>
     </div>
