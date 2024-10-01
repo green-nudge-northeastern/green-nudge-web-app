@@ -4,9 +4,12 @@ This page briefly introduces how to set up the development environment and run t
 
 **Current Page Layout Preview**
 
-<img width="800" alt="image" src="https://github.com/user-attachments/assets/f1851f32-ac86-47fb-be7e-0ce6f4bf6b22">
+<img width="600" alt="HomePage" src="https://github.com/user-attachments/assets/f1851f32-ac86-47fb-be7e-0ce6f4bf6b22">
 
-<img width="800" alt="image" src="https://github.com/user-attachments/assets/68e80d99-60b0-4f7e-a52c-d63d0f7a3a4a">
+<img width="600" alt="LogInPage" src="https://github.com/user-attachments/assets/68e80d99-60b0-4f7e-a52c-d63d0f7a3a4a">
+
+<img width="600" alt="LaunchPage" src="https://github.com/user-attachments/assets/96108ac4-04ad-4d07-9dfa-c6868423bb81">
+
 
 
 **Table of Contents:**
