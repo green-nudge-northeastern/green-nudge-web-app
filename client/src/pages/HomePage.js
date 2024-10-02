@@ -1,7 +1,7 @@
 import React from 'react';
 import './HomePage.css';
 import FadeInSection from '../components/layout/FadeInSection';
-import shapes from '../assets/shapes_1000x1000.png';
+import shapes from '../assets/img/shapes_1000x1000.png';
 
 function HomePage() {
   return (

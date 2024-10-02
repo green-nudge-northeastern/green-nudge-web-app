@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../services/firebaseConfig'; // Import Firebase auth for signOut
 import { getAltImage } from '../../services/userUtils';
-import profileIcon from '../../assets/profile_icon_200x200.png'; // Default profile icon
+import profileIcon from '../../assets/img/profile_icon_200x200.png'; // Default profile icon
 import './ProfileDropdown.css'; // Import the new CSS file for this component
 
 const ProfileDropdown = ({ user }) => {

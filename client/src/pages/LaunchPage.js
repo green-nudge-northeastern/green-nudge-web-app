@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './LaunchPage.css'; // Custom styles for the page
 import { QuestionBlock, OptionsBlock } from '../components/forms/QuestionOptionsBlock'; // Import both components
-import questionsOptionsData from '../assets/LaunchSurvey'; 
+import questionsOptionsData from '../assets/data/LaunchSurvey'; 
 
 
 const LaunchPage = () => {
@@ -27,6 +27,8 @@ const LaunchPage = () => {
     <div className="launch-page">
       <h1 className="launch-title">Launch a decarbonization program for you!</h1>
       <div className="launch-grid">
+        {/* add a panel for switching between previous and next question */}
+
         {/* all questions */}
         <div className="launch-questions">
           {questionsOptionsData.map(({ question, category }) => (

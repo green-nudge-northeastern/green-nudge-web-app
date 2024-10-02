@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { auth } from '../../services/firebaseConfig'; // Import Firebase auth
 import { onAuthStateChanged } from 'firebase/auth'; // Remove signOut here
 import './NavBar.css';
-import green_nudge_icon from '../../assets/icon_700x700.png';
+import green_nudge_icon from '../../assets/img/icon_700x700.png';
 import ProfileDropdown from './ProfileDropdown'; // Import the ProfileDropdown component
 
 function NavBar() {

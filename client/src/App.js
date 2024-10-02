@@ -30,7 +30,7 @@ function App() {
         <Route 
           path="/dashboard" 
           element={
-            <ProtectedRoute> {/* Use ProtectedRoute if it requires authentication */}
+            <ProtectedRoute>
               <Dashboard />
             </ProtectedRoute>
           } 
