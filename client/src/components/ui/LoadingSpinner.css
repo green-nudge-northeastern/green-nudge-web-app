@@ -3,9 +3,8 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    /* Let the spinner container adapt to its parent */
     width: 100%;
-    margin-top: 100px;
+    margin: auto;
 }
 
 
@@ -31,12 +30,10 @@
     width: 64px;
     height: 64px;
     margin: 8px;
-    border: 8px solid #9dff8a;
-    /* Set the custom color */
+    border: 8px solid var(--spinner-color, #9dff8a); /* Use the custom CSS variable */
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: #9dff8a transparent transparent transparent;
-    /* Custom color applied */
+    border-color: var(--spinner-color, #9dff8a) transparent transparent transparent;
 }
 
 .lds-ring div:nth-child(1) {
@@ -55,7 +52,6 @@
     0% {
         transform: rotate(0deg);
     }
-
     100% {
         transform: rotate(360deg);
     }

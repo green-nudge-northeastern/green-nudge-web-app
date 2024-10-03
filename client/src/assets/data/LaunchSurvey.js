@@ -1,4 +1,4 @@
-const questionsOptionsData = [
+export const questionsOptionsData = [
     {
         category: 'goals',
         question: 'What are the goals for your program?',

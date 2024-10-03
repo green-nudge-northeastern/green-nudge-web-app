@@ -2,6 +2,7 @@ import React from 'react';
 import './HomePage.css';
 import FadeInSection from '../components/layout/FadeInSection';
 import shapes from '../assets/img/shapes_1000x1000.png';
+import EmissionsGraph from '../components/graphs/ScenarioGraph';
 
 function HomePage() {
   return (
@@ -29,6 +30,13 @@ function HomePage() {
           <span className="slogan-highlight"> less</span>'
         </h2>
       </FadeInSection>
+
+      <FadeInSection>
+        <EmissionsGraph />
+      </FadeInSection>
+
+
+
 
     </div>
   );
