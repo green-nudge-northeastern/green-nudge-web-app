@@ -25,9 +25,10 @@ function NavBar() {
       </div>
       <div className="navbar-links-container">
         <ul className="navbar-links">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/services">Services</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
+          <li><a href="#about">Home</a></li> 
+          <li><a href="#demos">Demos</a></li>
+          <li><a href="#contact">Contact</a></li> 
+
         </ul>
         <div className="navbar-buttons">
           {user ? (
