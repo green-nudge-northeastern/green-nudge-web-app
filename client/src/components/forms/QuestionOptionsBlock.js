@@ -1,5 +1,6 @@
 import React from 'react';
 import './QuestionOptionsBlock.css'; // Custom styles for this component
+import { ReactComponent as CheckIcon } from '../../assets/img/check-square.svg'; // Import the SVG icon
 
 // QuestionBlock to display the question and handle clicks
 export const QuestionBlock = ({ question, category, selectedQuestion, handleQuestionClick }) => (
@@ -17,6 +18,7 @@ export const OptionsBlock = ({ options, category, selectedOptions, handleOptionC
         className={`option-button ${selectedOptions.includes(option) ? 'selected' : ''}`}
         onClick={() => handleOptionClick(category, option)}
       >
+        {selectedOptions.includes(option) && <CheckIcon className="check-icon" />}
         {option}
       </div>
     ))}

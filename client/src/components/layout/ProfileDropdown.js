@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../services/firebaseConfig'; // Import Firebase auth for signOut
 import { getAltImage } from '../../services/userUtils';
-import profileIcon from '../../assets/img/profile_icon_200x200.png'; // Default profile icon
 import './ProfileDropdown.css'; // Import the new CSS file for this component
+import { ReactComponent as ProfileIcon } from '../../assets/img/profile-icon-circle.svg';
 
 const ProfileDropdown = ({ user }) => {
   const handleLogout = () => {
@@ -14,7 +14,7 @@ const ProfileDropdown = ({ user }) => {
 
   return (
     <div className="profile-menu-container">
-      <img src={profileIcon} alt="Profile" className="profile-icon" />
+      <ProfileIcon className="profile-icon" />
       <div className="profile-dropdown">
         {user && (
           <div className="profile-header">

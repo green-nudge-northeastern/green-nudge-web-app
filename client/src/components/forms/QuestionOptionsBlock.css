@@ -52,6 +52,9 @@
     cursor: pointer;
     font-size: 1.6rem;
     transition: background-color 0.3s ease;
+    position: relative;
+    align-items: center;
+    justify-content: center;
 }
 
 .option-button.selected {
@@ -62,4 +65,15 @@
 
 .option-button:hover {
     background-color: #1ABC9C;
+}
+
+/* Style the icon */
+.check-icon {
+    fill: #1e392b;
+    position: absolute;
+    left: 30px;
+    width: 30px; /* Adjust the size of the icon */
+    height: 30px;
+    fill: #1e392b;
+    stroke-width: 1.2;
 }
