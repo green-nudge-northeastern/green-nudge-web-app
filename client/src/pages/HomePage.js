@@ -3,6 +3,7 @@ import './HomePage.css';
 import FadeInSection from '../components/layout/FadeInSection';
 import shapes from '../assets/img/shapes_1000x1000.png';
 import EmissionsGraph from '../components/graphs/ScenarioGraph';
+import SupplyChainNetwork from '../components/ui/SupplyChainNetwork';
 
 function HomePage() {
   return (
@@ -12,6 +13,7 @@ function HomePage() {
         <FadeInSection
           imageSrc={shapes}
           heading="Discover a smarter way to source responsibly."
+          style={{ width: '1200px' }}
         >
           <p>
             Champion a resilient supply chain that maximizes efficiency while boldly seizing 
@@ -20,7 +22,10 @@ function HomePage() {
         </FadeInSection>
 
 
-        <FadeInSection textAlign='center'>
+        <FadeInSection
+          textAlign='center'
+          style={{ width: '900px' }}
+        >
           <h2>
             Imagine a world where taking action is as smooth as a swipe on your phone—that's our vision.
           </h2>
@@ -29,6 +34,10 @@ function HomePage() {
             'Do <span className="slogan-highlight">more</span> with 
             <span className="slogan-highlight"> less</span>'
           </h2>
+        </FadeInSection>
+
+        <FadeInSection>
+          <SupplyChainNetwork />
         </FadeInSection>
       </section>
 

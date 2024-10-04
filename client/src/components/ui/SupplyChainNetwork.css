@@ -1,0 +1,132 @@
+.network-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  height: 60vh;
+}
+
+.network-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  padding: 0 22px;
+}
+
+.network-left {
+  align-items: flex-end;
+}
+
+.network-right {
+  align-items: flex-start;
+}
+
+.network-element-container {
+  display: flex;
+  gap: 30px;
+  z-index: 100;
+  transform-origin: center;
+}
+
+.element-name {
+  display: flex;
+  font-size: 40px;
+  color: #48fc8c;
+  font-weight: bold;
+}
+
+
+.name-bottom {
+  align-items: flex-end;
+}
+
+.circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid white;
+  background-color: var(--body-bg-color);
+  z-index: 100;
+}
+
+
+
+.icon {
+  width: 50px;
+  height: 50px;
+}
+
+
+.network-center {
+  position: relative;
+}
+
+.line {
+  position: absolute;
+  width: 80px; /* Length of the line */
+  height: 7px; /* Thickness of the line */
+  background-color: rgb(255, 255, 255); /* Line color */
+  transform-origin: center;
+  z-index: 1;
+}
+
+.line.supplier {
+  right: 102px;
+  transform: rotate(30deg);
+}
+
+.line.retailer {
+  top: 90px;
+  right: 102px;
+  transform: rotate(-30deg);
+}
+
+.line.manufacturer {
+  left: 102px;
+  transform: rotate(-30deg);
+}
+
+.line.brand {
+  top: 90px;
+  left: 102px;
+  transform: rotate(30deg);
+}
+
+
+.network-center .circle:hover {
+  transform: scale(1.2);
+  transition: transform 0.5s;
+  box-shadow: 0 0 15px rgba(111, 255, 0, 0.5);
+}
+
+.network-element-container:hover {
+  .element-name span {
+    text-shadow: 0 0 15px rgba(111, 255, 0, 0.5)
+  }
+  .circle {
+    box-shadow: 0 0 15px rgba(111, 255, 0, 0.5)
+  }
+  transform: scale(1.2);
+  transition: transform 0.5s;
+}
+
+
+.brand-container {
+  transform-origin: top left;
+}
+
+.supplier-container {
+  transform-origin: bottom right;
+}
+
+.retailer-container {
+  transform-origin: top right;
+}
+
+.manufacturer-container {
+  transform-origin: bottom left;
+}

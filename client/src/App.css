@@ -1,5 +1,6 @@
 body {
-  background-color: #1e392b;
+  --body-bg-color: #1e392b;
+  background-color: var(--body-bg-color);
 }
 
 
