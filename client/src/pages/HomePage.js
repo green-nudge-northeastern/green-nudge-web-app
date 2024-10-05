@@ -4,6 +4,8 @@ import FadeInSection from '../components/layout/FadeInSection';
 import shapes from '../assets/img/shapes_1000x1000.png';
 import EmissionsGraph from '../components/graphs/ScenarioGraph';
 import SupplyChainNetwork from '../components/ui/SupplyChainNetwork';
+import UseCases from '../components/UseCases';
+import UserStories from '../components/UserStories';
 
 function HomePage() {
   return (
@@ -45,6 +47,20 @@ function HomePage() {
       <section id="demos">
         <FadeInSection>
           <EmissionsGraph />
+        </FadeInSection>
+      </section>
+
+       {/* Section 3 (Use Cases) */}
+       <section id="useCases">
+        <FadeInSection>
+          <UseCases />
+        </FadeInSection>
+      </section>
+
+      {/* Section 4 (User Stories) */}
+      <section id="userStories">
+        <FadeInSection>
+          <UserStories />
         </FadeInSection>
       </section>
     </div>
