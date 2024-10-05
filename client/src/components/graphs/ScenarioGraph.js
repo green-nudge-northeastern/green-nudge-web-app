@@ -6,6 +6,7 @@ import { MaterialPairs, MaterialAnnualEmission } from '../../assets/data/Materia
 import { EnergyPairs, EnergyAnnualEmission } from '../../assets/data/EnergyAnnualEmission';
 import ScenarioSummary from './ScenarioSummary';
 import { ReactComponent as ScenarioIcon } from '../../assets/img/scenario-icon.svg';
+import { ImLeaf } from "react-icons/im";
 import LoadingSpinner from '../ui/LoadingSpinner';
 
 
@@ -208,7 +209,7 @@ const EmissionsGraph = () => {
           </div>
           
           <div className="description-sustainable-select">
-            <ScenarioIcon id="scenario-icon" />
+            <ImLeaf id="scenario-icon" />
             <div>
               <div className="flex-container">
                 <span className="title-description">Model a scenario where I use </span>

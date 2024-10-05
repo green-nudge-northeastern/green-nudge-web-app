@@ -7,6 +7,7 @@ import NavBar from './components/layout/NavBar';
 import LaunchPage from './pages/LaunchPage';
 import ProtectedRoute from './components/auth/ProtectedRoute'; // Import the protected route component
 import Dashboard from './pages/Dashboard';
+import Footer from './components/layout/Footer';
 
 
 function App() {
@@ -27,15 +28,17 @@ function App() {
             }
           />
 
-        <Route 
-          path="/dashboard" 
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          } 
-        />
+          <Route 
+            path="/dashboard" 
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            } 
+          />
         </Routes>
+        
+        <Footer />
       </div>
     </Router>
   );
