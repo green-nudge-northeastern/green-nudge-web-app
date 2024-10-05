@@ -12,7 +12,7 @@
 }
 
 .section-text {
-  color: #d1e6d1;
+  color: var(--content-primary);
   text-align: center;
 }
 
@@ -33,7 +33,7 @@ p {
 }
 
 .slogan-highlight {
-  color: #48fc8c;
+  color: var(--brand-bright-green);
   font-weight: bold;
 }
 

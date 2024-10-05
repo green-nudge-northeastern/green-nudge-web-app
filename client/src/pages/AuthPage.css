@@ -4,13 +4,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 80vh;
+    min-height: 90vh;
+    margin: 10vh auto;
 }
 
 /* Title styling */
 .auth-title {
     font-size: 48px;
-    color: #48fc8c;
+    color: var(--brand-bright-green);
     margin-bottom: 20px;
 }
 
@@ -22,7 +23,7 @@
 }
 
 .auth-link-text a {
-    color: #48fc8c;
+    color: var(--brand-bright-green);
     text-decoration: none;
 }
 
@@ -48,6 +49,6 @@
 /* Vertical line separator */
 .vertical-separator {
     width: 1px;
-    background-color: #719f83; /* Set the color of the line */
+    background-color: var(--brand-mild-green);
 
 }

@@ -9,7 +9,7 @@
 /* Input styling */
 .auth-label {
     font-size: 22px;
-    color: #fff;
+    color: white;
     font-weight: bold;
     margin-bottom: 5px;
 }
@@ -28,16 +28,16 @@
 
 .auth-input:focus {
     outline: none;
-    border: 2px solid #48fc8c;
+    border: 2px solid var(--brand-bright-green);
 }
 
 /* Button styling */
 .auth-button {
     padding: 12px;
-    background-color: #48fc8c;
+    background-color: var(--brand-bright-green);
     border: none;
     border-radius: 5px;
-    color: #223822;
+    color: var(content-dark);
     font-size: 22px;
     font-weight: bold;
     cursor: pointer;
@@ -47,7 +47,7 @@
 }
 
 .auth-button:hover {
-    background-color: #36d77f;
+    background-color: var(--brand-bright-green-hover);
 }
 
 /* Error text styling */

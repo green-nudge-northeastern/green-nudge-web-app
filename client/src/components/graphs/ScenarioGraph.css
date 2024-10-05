@@ -5,7 +5,7 @@
 
 #graph-slogan {
     font-size: 70px;
-    color: #48fc8c;
+    color: var(--brand-bright-green);
     font-weight: bold;
     text-align: center;
     margin: 30px auto;
@@ -13,7 +13,7 @@
 
 .strategy-prompt {
     font-size: 40px;
-    color: #ade8c2;
+    color: var(--content-primary);
     font-weight: bold;
     text-align: center;
 }
@@ -109,8 +109,9 @@
 }
 
 #scenario-icon {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
+    color: var(--brand-bright-green);
 }
 
 

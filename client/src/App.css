@@ -1,6 +1,19 @@
+:root {
+  --main-background-color: #1e392b;
+  --dark-background-color: #202020;
+  --brand-light-green: #a4d4af;
+  --brand-mild-green: #719f83;
+  --brand-mild-green-hover: #457657;
+  --brand-bright-green: #48fc8c;
+  --brand-bright-green-hover: #36d77f;
+
+  --content-primary: #d1e6d1;
+  --content-secondary: #CAFFFA;
+  --content-dark: #1e392b;
+}
+
 body {
-  --body-bg-color: #1e392b;
-  background-color: var(--body-bg-color);
+  background-color: var(--main-background-color);
 }
 
 

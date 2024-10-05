@@ -32,14 +32,14 @@
 .navbar-links li a {
     font-size: 22px;
     display: inline-block;
-    color: #d1e6d1;
+    color: var(--content-primary);
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
 .navbar-links li a:hover {
     transform: translateY(-5px);
-    color: #48fc8c;
+    color: var(--brand-bright-green)
 }
 
 /* Buttons */
@@ -61,20 +61,20 @@
 
 /* Styling for Log In (Sign In) button */
 .login-button {
-    background-color: #fff;
-    color: #223822;
+    background-color: white;
+    color: var(--content-dark);
 }
 
 .login-button:hover {
-    background-color: rgb(188, 188, 188);
+    background-color: lightgray;
 }
 
 /* Styling for Sign Up button */
 .signup-button {
-    background-color: rgb(112, 220, 153);
-    color: #223822;
+    background-color: var(--brand-bright-green);
+    color: var(--content-dark);
 }
 
 .signup-button:hover {
-    background-color: #269e5c;
+    background-color: var(--brand-bright-green-hover);
 }
