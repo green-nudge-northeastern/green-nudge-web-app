@@ -6,6 +6,7 @@ import EmissionsGraph from '../components/graphs/ScenarioGraph';
 import SupplyChainNetwork from '../components/ui/SupplyChainNetwork';
 import UseCases from '../components/UseCases';
 import UserStories from '../components/UserStories';
+import TrustedVendors from '../components/TrustedVendors';
 
 function HomePage() {
   return (
@@ -61,6 +62,13 @@ function HomePage() {
       <section id="userStories">
         <FadeInSection>
           <UserStories />
+        </FadeInSection>
+      </section>
+
+       {/* Section 5 (Trusted Vendors) */}
+       <section id="trustedVendors">
+        <FadeInSection>
+          <TrustedVendors />
         </FadeInSection>
       </section>
     </div>

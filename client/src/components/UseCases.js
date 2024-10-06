@@ -43,7 +43,7 @@ const UseCases = () => {
 
   return (
     <div className="use-cases">
-      <h1>This is the Use Cases Component</h1>
+      <h1>Get Started</h1>
       <div className="cases-wrapper">
         <button className="scroll-button left" onClick={scrollLeft}>&lt;</button>
         <div className="cases-container" ref={containerRef}>

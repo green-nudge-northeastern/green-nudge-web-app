@@ -1,51 +1,51 @@
-.use-cases {
+.trusted-vendors {
   text-align: center;
   padding: 20px;
 }
 
-.cases-wrapper {
+.vendors-wrapper {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.cases-container {
+.vendors-container {
   display: flex;
   overflow-x: hidden;
   gap: 20px;
   padding: 10px;
-  width: 900px; /* Adjust width to fit 3 use cases */
+  width: 900px; /* Keep the total width the same */
 }
 
-.case-card {
+.vendors-card {
   background-color: #f9f9f9;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 20px;
-  min-width: 300px;
+  min-width: 450px; /* Increased width */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
 }
 
-.case-card:hover {
+.vendors-card:hover {
   transform: translateY(-10px);
 }
 
-.case-image {
+.vendor-image {
   width: 100%;
   height: auto;
   border-radius: 8px 8px 0 0;
 }
 
-.case-card h2 {
-  font-size: 1.5em;
+.vendors-card h2 {
+  font-size: 1.8em; /* Increased font size */
   margin: 10px 0;
-  color: #333; /* Updated color for better visibility */
+  color: #333;
 }
 
-.case-card p {
-  font-size: 1em;
+.vendors-card p {
+  font-size: 1.2em; /* Increased font size */
   color: #555;
 }
 
@@ -71,9 +71,4 @@
 
 .scroll-button:hover {
   background-color: #005a9e;
-}
-
-.case-image {
-  width: 200px; /* Adjust the width as needed */
-  height: auto; /* Maintains the aspect ratio */
 }
