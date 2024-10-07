@@ -67,7 +67,7 @@
 
 .line {
   position: absolute;
-  width: 80px; /* Length of the line */
+  width: 90px; /* Length of the line */
   height: 7px; /* Thickness of the line */
   background-color: rgb(255, 255, 255); /* Line color */
   transform-origin: center;
@@ -98,7 +98,7 @@
 
 
 .network-center .circle:hover {
-  transform: scale(1.2);
+  transform: scale(1.4);
   transition: transform 0.5s;
   box-shadow: 0 0 15px rgba(111, 255, 0, 0.5);
 }
@@ -110,7 +110,7 @@
   .circle {
     box-shadow: 0 0 15px rgba(111, 255, 0, 0.5)
   }
-  transform: scale(1.2);
+  transform: scale(1.4);
   transition: transform 0.5s;
 }
 
