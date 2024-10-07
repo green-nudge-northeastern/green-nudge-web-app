@@ -18,14 +18,22 @@ const Footer = () => {
             <div className="footer-top">
                 <div className="footer-brand">
                     <img src={GreenNudgeLogo} alt="Green Nudge Logo" />
-                    {/* <h2>GreenNudge</h2> */}
+                    <h2>INNOVATE RESPONSIBLY.</h2>
+                    <p className="footer-slogan">
+                        Empowering organizations to transform decarbonization intentions into real actions.
+                    </p>
                     <div className="footer-location">
                         <FaLocationDot size={24} color="currentColor" className="footer-icons" />
                         <p>Vancouver, British Columbia</p>
                     </div>
-                    <p className="footer-slogan">
-                        Empowering organizations to transform decarbonization intentions into real actions.
-                    </p>
+                    <div className="social-links">
+                        <a href="mailto:snehasoni@greennudge.ca" target="_blank" rel="noreferrer">
+                            <MdEmail size={24} className="footer-icons" /> 
+                        </a>
+                        <a href="https://linkedin.com/company/greennudge/" target="_blank" rel="noreferrer">
+                            <FaLinkedin size={24} className="footer-icons" />
+                        </a>
+                    </div>
                 </div>
 
                 <div className="footer-content">
@@ -52,18 +60,6 @@ const Footer = () => {
                         </ul>
                     </div>
 
-
-                    <div className="footer-section">
-                        <h3>Connect</h3>
-                        <div className="social-links">
-                            <a href="mailto:snehasoni@greennudge.ca" target="_blank" rel="noreferrer">
-                                <MdEmail size={24} className="footer-icons" /> 
-                            </a>
-                            <a href="https://linkedin.com/company/greennudge/" target="_blank" rel="noreferrer">
-                                <FaLinkedin size={24} className="footer-icons" />
-                            </a>
-                        </div>
-                    </div>
                 </div>
             </div>
 
