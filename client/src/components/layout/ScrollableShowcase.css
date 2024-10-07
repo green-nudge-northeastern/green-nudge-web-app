@@ -1,0 +1,96 @@
+.scrollable-showcase {
+  text-align: center;
+  padding: 20px;
+}
+
+.showcase-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.showcase-container {
+  display: flex;
+  overflow-x: hidden;
+  gap: 20px;
+  padding: 10px;
+  width: 900px;
+}
+
+.showcase-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.showcase-card:hover {
+  transform: translateY(-10px);
+}
+
+.showcase-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px 8px 0 0;
+}
+
+.showcase-card h2 {
+  font-size: 1.5em;
+  margin: 10px 0;
+  color: #333;
+}
+
+.showcase-card p {
+  font-size: 1em;
+  color: #555;
+}
+
+.scroll-button {
+  background-color: transparent;
+  border-radius: 20%;
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+}
+
+.scroll-button.left {
+  left: -110px;
+}
+
+.scroll-button.right {
+  right: -110px;
+}
+
+.scroll-button:hover {
+  background-color: var(--brand-mild-green);
+}
+
+
+/* Fade-out effect on the edges */
+.showcase-wrapper::before, .showcase-wrapper::after {
+    /* content: ''; */  /* uncomment this to see fade-out effect */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 15%;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .showcase-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, var(--main-background-color), rgba(255, 255, 255, 0));
+  }
+  
+  .showcase-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, var(--main-background-color), rgba(255, 255, 255, 0));
+  }

@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import './UserStories.css';
 import snoopy from '../assets/img/Snoopy.png';
+import ScrollableShowcase from './layout/ScrollableShowcase';
 
 const UserStories = () => {
   const stories = [
@@ -31,33 +32,12 @@ const UserStories = () => {
     }
   ];
 
-  const containerRef = useRef(null);
-
-  const scrollLeft = () => {
-    containerRef.current.scrollBy({ left: -300, behavior: 'smooth' });
-  };
-
-  const scrollRight = () => {
-    containerRef.current.scrollBy({ left: 300, behavior: 'smooth' });
-  };
-
   return (
-    <div className="user-stories">
-      <h1>Welcome to the User Stories</h1>
-      <div className="stories-wrapper">
-        <button className="scroll-button left" onClick={scrollLeft}>&lt;</button>
-        <div className="stories-container" ref={containerRef}>
-          {stories.map((story, index) => (
-            <div key={index} className="story-card">
-              <img src={story.image} alt={story.title} className="story-image" />
-              <h2>{story.title}</h2>
-              <p>{story.description}</p>
-            </div>
-          ))}
-        </div>
-        <button className="scroll-button right" onClick={scrollRight}>&gt;</button>
-      </div>
-    </div>
+    <ScrollableShowcase
+    title="Welcome to the User Stories"
+    items={stories}
+    itemKeyPrefix="story"
+    width="300"/>
   );
 };
 
