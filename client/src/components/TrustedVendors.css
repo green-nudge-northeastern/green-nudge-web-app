@@ -1,0 +1,74 @@
+.trusted-vendors {
+  text-align: center;
+  padding: 20px;
+}
+
+.vendors-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vendors-container {
+  display: flex;
+  overflow-x: hidden;
+  gap: 20px;
+  padding: 10px;
+  width: 900px; /* Keep the total width the same */
+}
+
+.vendors-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  min-width: 450px; /* Increased width */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.vendors-card:hover {
+  transform: translateY(-10px);
+}
+
+.vendor-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px 8px 0 0;
+}
+
+.vendors-card h2 {
+  font-size: 1.8em; /* Increased font size */
+  margin: 10px 0;
+  color: #333;
+}
+
+.vendors-card p {
+  font-size: 1.2em; /* Increased font size */
+  color: #555;
+}
+
+.scroll-button {
+  background-color: #0078d4;
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.scroll-button.left {
+  left: 0;
+}
+
+.scroll-button.right {
+  right: 0;
+}
+
+.scroll-button:hover {
+  background-color: #005a9e;
+}
