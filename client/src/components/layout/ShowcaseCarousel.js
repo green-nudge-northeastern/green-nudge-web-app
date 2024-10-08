@@ -5,24 +5,27 @@ import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { MdPendingActions } from "react-icons/md";
 
 const ShowcaseCarousel = ({ title, items, itemKeyPrefix, width }) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(1); // Start at 1 (skip duplicated last item)
     const containerRef = useRef(null);
     const gap = 20;
     const cardWidth = parseInt(width, 10);
     const containerWidth = 3.2 * cardWidth + 2 * gap;
 
-    const prevIndex = currentIndex === 0 ? items.length - 1 : currentIndex - 1;
-    const nextIndex = currentIndex === items.length - 1 ? 0 : currentIndex + 1;
+    // Duplicating items to achieve the infinite loop
+    const extendedItems = [items[items.length - 1], ...items, items[0]];
+
+    const prevIndex = currentIndex - 1;
+    const nextIndex = currentIndex + 1;
 
     const scrollLeft = () => {
-        setCurrentIndex(prevIndex);
+        setCurrentIndex((prevIndex) => prevIndex - 1);
     };
 
     const scrollRight = () => {
-        setCurrentIndex(nextIndex);
+        setCurrentIndex((prevIndex) => prevIndex + 1);
     };
 
-    // Scroll to center the current item
+    // Scroll to center the current item and handle wrapping logic
     useEffect(() => {
         const container = containerRef.current;
         const currentCard = container.children[currentIndex];
@@ -35,6 +38,22 @@ const ShowcaseCarousel = ({ title, items, itemKeyPrefix, width }) => {
             behavior: 'smooth',
         });
     }, [currentIndex]);
+
+    // Handle wrapping effect after transition
+    useEffect(() => {
+        if (currentIndex === 0) {
+            // When reaching the duplicated last item, jump to the real last item
+            setTimeout(() => {
+                setCurrentIndex(items.length);
+            }, 300); // Delay to allow smooth transition
+        }
+        if (currentIndex === extendedItems.length - 1) {
+            // When reaching the duplicated first item, jump to the real first item
+            setTimeout(() => {
+                setCurrentIndex(1);
+            }, 300);
+        }
+    }, [currentIndex, items.length, extendedItems.length]);
 
     return (
         <div className="scrollable-showcase">
@@ -50,7 +69,7 @@ const ShowcaseCarousel = ({ title, items, itemKeyPrefix, width }) => {
                         width: `${containerWidth}px`,
                     }}
                 >
-                    {items.map((item, index) => (
+                    {extendedItems.map((item, index) => (
                         <div
                             key={`${itemKeyPrefix}-${index}`}
                             className={`showcase-card ${index === currentIndex
