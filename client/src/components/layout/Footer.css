@@ -6,6 +6,14 @@
     font-size: 20px;
 }
 
+.social-links {
+    margin: 20px 0;
+}
+
+.footer a:hover {
+    color: white;
+}
+
 .footer-top {
     display: flex;
     justify-content: space-between;
@@ -22,6 +30,12 @@
 
 .footer-brand p {
     font-size: 14px;
+    color: var(--content-primary);
+}
+
+.footer-brand h2 {
+    font-family: "Arial Black", sans-serif;
+    font-size: 32px;
     color: var(--content-primary);
 }
 
@@ -68,9 +82,6 @@
     gap: 10px;
 }
 
-.footer-section a:hover {
-    color: white;
-}
 
 .social-links {
     display: flex;

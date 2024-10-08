@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import './UseCases.css';
 import peanut from '../assets/img/peanut.jpg';
+import ShowcaseCarousel from './layout/ShowcaseCarousel';
 
 const UseCases = () => {
   const useCases = [
@@ -31,33 +32,8 @@ const UseCases = () => {
     }
   ];
 
-  const containerRef = useRef(null);
-
-  const scrollLeft = () => {
-    containerRef.current.scrollBy({ left: -300, behavior: 'smooth' });
-  };
-
-  const scrollRight = () => {
-    containerRef.current.scrollBy({ left: 300, behavior: 'smooth' });
-  };
-
   return (
-    <div className="use-cases">
-      <h1>Get Started</h1>
-      <div className="cases-wrapper">
-        <button className="scroll-button left" onClick={scrollLeft}>&lt;</button>
-        <div className="cases-container" ref={containerRef}>
-          {useCases.map((useCase, index) => (
-            <div key={index} className="case-card">
-              <img src={useCase.image} alt={useCase.title} className="case-image" />
-              <h2>{useCase.title}</h2>
-              <p>{useCase.description}</p>
-            </div>
-          ))}
-        </div>
-        <button className="scroll-button right" onClick={scrollRight}>&gt;</button>
-      </div>
-    </div>
+    <ShowcaseCarousel title="Get Started" items={useCases} itemKeyPrefix="useCase" width="300"/>
   );
 };
 

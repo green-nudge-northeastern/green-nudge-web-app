@@ -7,6 +7,7 @@ import SupplyChainNetwork from '../components/ui/SupplyChainNetwork';
 import UseCases from '../components/UseCases';
 import UserStories from '../components/UserStories';
 import TrustedVendors from '../components/TrustedVendors';
+import { Link } from 'react-router-dom';
 
 function HomePage() {
   return (
@@ -69,6 +70,24 @@ function HomePage() {
        <section id="trustedVendors">
         <FadeInSection>
           <TrustedVendors />
+        </FadeInSection>
+      </section>
+
+      {/* Section 6 (Join Us) */}
+      <section id="joinUs">
+        <FadeInSection
+          textAlign='center'
+          style={{ width: '900px' }}
+        >
+        <h1>Start Innovation <span className="slogan-highlight">Today</span></h1>
+        <div className="join-us">
+          <Link to="/login">
+            <button className="login-button">Log In</button>
+          </Link>
+          <Link to="/signup">
+            <button className="signup-button">Sign Up</button>
+          </Link>
+        </div>
         </FadeInSection>
       </section>
     </div>
