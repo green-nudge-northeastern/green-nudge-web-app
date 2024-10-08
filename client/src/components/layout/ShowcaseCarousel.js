@@ -1,21 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './ShowcaseCarousel.css';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { IoMdCheckmarkCircleOutline } from "react-icons/io";
-import { MdPendingActions } from "react-icons/md";
 
-const ShowcaseCarousel = ({ title, items, itemKeyPrefix, width }) => {
+const ShowcaseCarousel = ({ title, children, width }) => {
     const [currentIndex, setCurrentIndex] = useState(1); // Start at 1 (skip duplicated last item)
     const containerRef = useRef(null);
-    const gap = 20;
     const cardWidth = parseInt(width, 10);
-    const containerWidth = 3.2 * cardWidth + 2 * gap;
+    const containerWidth = 3.2 * cardWidth;
 
-    // Duplicating items to achieve the infinite loop
-    const extendedItems = [items[items.length - 1], ...items, items[0]];
+    const prevIndex = currentIndex - 1 < 0 ? children.length - 1 : currentIndex - 1;
+    const nextIndex = currentIndex + 1 > children.length - 1 ? 0 : currentIndex + 1;
 
-    const prevIndex = currentIndex - 1;
-    const nextIndex = currentIndex + 1;
+    const extendedChildren = [
+        React.cloneElement(children[children.length - 1]),
+        ...children,
+        React.cloneElement(children[0]),
+    ];
 
     const scrollLeft = () => {
         setCurrentIndex((prevIndex) => prevIndex - 1);
@@ -25,7 +25,6 @@ const ShowcaseCarousel = ({ title, items, itemKeyPrefix, width }) => {
         setCurrentIndex((prevIndex) => prevIndex + 1);
     };
 
-    // Scroll to center the current item and handle wrapping logic
     useEffect(() => {
         const container = containerRef.current;
         const currentCard = container.children[currentIndex];
@@ -39,21 +38,18 @@ const ShowcaseCarousel = ({ title, items, itemKeyPrefix, width }) => {
         });
     }, [currentIndex]);
 
-    // Handle wrapping effect after transition
     useEffect(() => {
         if (currentIndex === 0) {
-            // When reaching the duplicated last item, jump to the real last item
             setTimeout(() => {
-                setCurrentIndex(items.length);
-            }, 300); // Delay to allow smooth transition
+                setCurrentIndex(children.length);
+            }, 300);
         }
-        if (currentIndex === extendedItems.length - 1) {
-            // When reaching the duplicated first item, jump to the real first item
+        if (currentIndex === extendedChildren.length - 1) {
             setTimeout(() => {
                 setCurrentIndex(1);
             }, 300);
         }
-    }, [currentIndex, items.length, extendedItems.length]);
+    }, [currentIndex, children.length, extendedChildren.length]);
 
     return (
         <div className="scrollable-showcase">
@@ -69,36 +65,21 @@ const ShowcaseCarousel = ({ title, items, itemKeyPrefix, width }) => {
                         width: `${containerWidth}px`,
                     }}
                 >
-                    {extendedItems.map((item, index) => (
+                    {extendedChildren.map((child, index) => (
                         <div
-                            key={`${itemKeyPrefix}-${index}`}
+                            key={`carousel-item-${index}`}
                             className={`showcase-card ${index === currentIndex
-                                    ? 'current'
-                                    : index === prevIndex || index === nextIndex
-                                        ? 'side'
-                                        : ''
-                                }`}
+                                ? 'current'
+                                : index === prevIndex || index === nextIndex
+                                    ? 'side'
+                                    : ''
+                            }`}
                             style={{
                                 minWidth: `${width}px`,
                                 maxWidth: `${width}px`,
                             }}
                         >
-                            <img src={item.image} alt={item.title} className="showcase-image" />
-                            <h2>{item.title}</h2>
-                            <p>{item.description}</p>
-                            {item.products && <p>Products: {item.products.join(', ')}</p>}
-                            {item.location && <p>{item.location}</p>}
-                            {item.rating && <p>Overall Rating: {item.rating}</p>}
-                            {item.vetted !== undefined && (
-                                <p>
-                                    Vetted:{' '}
-                                    {item.vetted ? (
-                                        <IoMdCheckmarkCircleOutline size={20} color="green" />
-                                    ) : (
-                                        <MdPendingActions size={20} />
-                                    )}
-                                </p>
-                            )}
+                            {child}
                         </div>
                     ))}
                 </div>

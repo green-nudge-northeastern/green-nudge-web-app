@@ -1,43 +1,54 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import './UserStories.css';
 import snoopy from '../assets/img/Snoopy.png';
 import ShowcaseCarousel from './layout/ShowcaseCarousel';
 
-const UserStories = () => {
-  const stories = [
-    {
-      title: "Story Title 1",
-      description: "This is a brief description of the first user story.",
-      image: snoopy
-    },
-    {
-      title: "Story Title 2",
-      description: "This is a brief description of the second user story.",
-      image: snoopy
-    },
-    {
-      title: "Story Title 3",
-      description: "This is a brief description of the third user story.",
-      image: snoopy
-    },
-    {
-      title: "Story Title 4",
-      description: "This is a brief description of the fourth user story.",
-      image: snoopy
-    },
-    {
-      title: "Story Title 5",
-      description: "This is a brief description of the fifth user story.",
-      image: snoopy
-    }
-  ];
 
+const stories = [
+  {
+    title: "Story Title 1",
+    description: "Brief description of the first user story.",
+    image: snoopy
+  },
+  {
+    title: "Story Title 2",
+    description: "Brief description of the second user story.",
+    image: snoopy
+  },
+  {
+    title: "Story Title 3",
+    description: "Brief description of the third user story.",
+    image: snoopy
+  },
+  {
+    title: "Story Title 4",
+    description: "Brief description of the fourth user story.",
+    image: snoopy
+  },
+  {
+    title: "Story Title 5",
+    description: "Brief description of the fifth user story.",
+    image: snoopy
+  }
+];
+
+const StoryCard = ({ story }) => {
   return (
-    <ShowcaseCarousel
-    title="Explore Our User Stories"
-    items={stories}
-    itemKeyPrefix="story"
-    width="300"/>
+    <div>
+      <img src={story.image} alt={story.title} className="user-story-card-image" />
+      <h2>{story.title}</h2>
+      <p>{story.description}</p>
+    </div>
+  );
+};
+
+const UserStories = () => {
+  return (
+    <ShowcaseCarousel title="Explore Our User Stories" width="300">
+      {stories.map((story, index) => (
+        <StoryCard key={index} story={story} />
+      ))}
+    </ShowcaseCarousel>
   );
 };
 
