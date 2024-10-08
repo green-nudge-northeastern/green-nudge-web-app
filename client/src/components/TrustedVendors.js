@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import './TrustedVendors.css';
 import husky from '../assets/img/husky.jpg';
-import ScrollableShowcase from './layout/ScrollableShowcase';
+import ShowcaseCarousel from './layout/ShowcaseCarousel';
 
 const TrustedVendors = () => {
     const vendors = [
@@ -54,7 +54,7 @@ const TrustedVendors = () => {
     ];
   
     return (
-      <ScrollableShowcase title="Trusted Vendors" items={vendors} itemKeyPrefix="vendor" width="450"/>
+      <ShowcaseCarousel title="Trusted Vendors" items={vendors} itemKeyPrefix="vendor" width="350"/>
     );
   };
   

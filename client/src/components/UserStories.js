@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import './UserStories.css';
 import snoopy from '../assets/img/Snoopy.png';
-import ScrollableShowcase from './layout/ScrollableShowcase';
+import ShowcaseCarousel from './layout/ShowcaseCarousel';
 
 const UserStories = () => {
   const stories = [
@@ -33,8 +33,8 @@ const UserStories = () => {
   ];
 
   return (
-    <ScrollableShowcase
-    title="Welcome to the User Stories"
+    <ShowcaseCarousel
+    title="Explore Our User Stories"
     items={stories}
     itemKeyPrefix="story"
     width="300"/>

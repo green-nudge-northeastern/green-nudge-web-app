@@ -4,3 +4,17 @@
     padding: 20px;
     margin: 0;
   }
+
+.join-us {
+  margin: auto;
+  padding: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.join-us button {
+  width: 150px;
+  height: 80px;
+}

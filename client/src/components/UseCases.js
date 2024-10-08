@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import './UseCases.css';
 import peanut from '../assets/img/peanut.jpg';
-import ScrollableShowcase from './layout/ScrollableShowcase';
+import ShowcaseCarousel from './layout/ShowcaseCarousel';
 
 const UseCases = () => {
   const useCases = [
@@ -33,7 +33,7 @@ const UseCases = () => {
   ];
 
   return (
-    <ScrollableShowcase title="Get Started" items={useCases} itemKeyPrefix="useCase" width="300"/>
+    <ShowcaseCarousel title="Get Started" items={useCases} itemKeyPrefix="useCase" width="300"/>
   );
 };
 
