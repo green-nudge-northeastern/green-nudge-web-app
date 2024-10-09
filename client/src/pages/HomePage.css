@@ -19,3 +19,23 @@
   height: 80px;
   font-size: 1.5em;
 }
+
+.back-to-top {
+  bottom: 20px;
+  right: 20px;
+  color: var(--content-primary);
+  opacity: 70%;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.back-to-top:hover {
+  color: var(--brand-bright-green);
+  text-decoration: underline;
+}
+
+.back-to-top-icon {
+  vertical-align: middle;
+}

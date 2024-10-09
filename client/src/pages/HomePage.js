@@ -4,9 +4,10 @@ import FadeInSection from '../components/layout/FadeInSection';
 import shapes from '../assets/img/shapes_1000x1000.png';
 import EmissionsGraph from '../components/graphs/ScenarioGraph';
 import SupplyChainNetwork from '../components/ui/SupplyChainNetwork';
-import UseCases from '../components/UseCases';
-import UserStories from '../components/UserStories';
-import TrustedVendors from '../components/TrustedVendors';
+import UseCases from '../components/layout/UseCases';
+import UserStories from '../components/layout/UserStories';
+import TrustedVendors from '../components/layout/TrustedVendors';
+import { BiArrowToTop } from "react-icons/bi";
 import { Link } from 'react-router-dom';
 
 function HomePage() {
@@ -88,6 +89,8 @@ function HomePage() {
             <button className="signup-button">Sign Up</button>
           </Link>
         </div>
+        {/* back to top */}
+        <a href="#about" className="back-to-top"> <BiArrowToTop className="back-to-top-icon" size={45}/> Back to Top</a>
         </FadeInSection>
       </section>
     </div>

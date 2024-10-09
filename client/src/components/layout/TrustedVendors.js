@@ -1,13 +1,14 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import './TrustedVendors.css';
-import husky from '../assets/img/husky.jpg';
-import ShowcaseCarousel from './layout/ShowcaseCarousel';
+import husky from '../../assets/img/husky.jpg';
+import ShowcaseCarousel from './ShowcaseCarousel';
 import { TiStarFullOutline } from "react-icons/ti";
 import { FaTruckLoading } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
-import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { MdPendingActions } from "react-icons/md";
 import { FaEnvira } from "react-icons/fa";
+import { RiVerifiedBadgeLine } from "react-icons/ri";
+
 
 
 const vendors = [
@@ -72,24 +73,28 @@ const VendorCard = ({ vendor }) => {
       <h2>{vendor.title}</h2>
       <p>{vendor.description}</p>
       <div className="vendor-card-metrics">
-        {vendor.products && <p><FaTruckLoading
-          className="vendor-icon"
-          size={20}
-          color="currentColor" /> {vendor.products.join(', ')}</p>}
-        <p><FaEnvira
-          className="vendor-icon"
-          size={20}
-          color="green" /> {vendor.plans} Reduction Plans</p>
         <p><FaLocationDot
           className="vendor-icon"
           size={20}
-          color="currentColor" /> {vendor.location}</p>
+          color="currentColor" /> {vendor.location}
+        </p>
+        {vendor.products && <p><FaTruckLoading
+          className="vendor-icon"
+          size={20}
+          color="currentColor" /> {vendor.products.join(', ')}
+        </p>}
+        <p><FaEnvira
+          className="vendor-icon"
+          size={20}
+          color="green" /> {vendor.plans} Reduction Plans
+        </p>
         <p><TiStarFullOutline
           className="vendor-icon"
           size={20}
-          color="gold" /> {vendor.rating} </p>
+          color="gold" /> {vendor.rating}
+        </p>
         <p>
-          {vendor.vetted ? <IoMdCheckmarkCircleOutline
+          {vendor.vetted ? <RiVerifiedBadgeLine
             className="vendor-icon"
             size={20}
             color="green" /> : <MdPendingActions

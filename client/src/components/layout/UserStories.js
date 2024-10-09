@@ -1,7 +1,7 @@
 import React from 'react';
 import './UserStories.css';
-import snoopy from '../assets/img/Snoopy.png';
-import ShowcaseCarousel from './layout/ShowcaseCarousel';
+import snoopy from '../../assets/img/Snoopy.png';
+import ShowcaseCarousel from './ShowcaseCarousel';
 
 
 const stories = [

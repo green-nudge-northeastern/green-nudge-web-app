@@ -1,7 +1,7 @@
 import React from 'react';
 import './UseCases.css';
-import peanut from '../assets/img/peanut.jpg';
-import ShowcaseCarousel from './layout/ShowcaseCarousel';
+import peanut from '../../assets/img/peanut.jpg';
+import ShowcaseCarousel from './ShowcaseCarousel';
 
 
 const useCases = [
