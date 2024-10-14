@@ -2,6 +2,7 @@ import React from 'react'
 import './ExplorePage.css'
 import { auth } from '../services/firebaseConfig'
 import { useAuthState } from 'react-firebase-hooks/auth'
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 
 const Explore = () => {
     const [user] = useAuthState(auth)
@@ -48,6 +49,13 @@ const Explore = () => {
                     </div>
                 </div>
                 <div className='explore-right'>
+                    <div className='explore-search'>
+                        <div className='explore-search-left'>
+                            <div className='explore-search-left-icon'></div>
+                            <input placeholder='Search text'></input>
+                        </div>
+                        <div className='explore-search-right'></div>
+                    </div>
                     <h3>
                         Global value chain for Textile industry has a growing
                         trend in design innovation that has transformed the
@@ -131,7 +139,7 @@ const Explore = () => {
                                 <div className='explore-card-btn'>Enabled</div>
                             </div>
                         </div>
-                        <div className='explore-card'>
+                        {/* <div className='explore-card'>
                             <div className='explore-card-header'>
                                 <div className='explore-card-header-left'>
                                     <div className='explore-card-header-circle'>
@@ -165,7 +173,14 @@ const Explore = () => {
                                 </div>
                                 <div className='explore-card-btn'>Enabled</div>
                             </div>
-                        </div>
+                        </div> */}
+
+                        <button className='scroll-button left'>
+                            <IoIosArrowBack size={80} />
+                        </button>
+                        <button className='scroll-button right'>
+                            <IoIosArrowForward size={80} />
+                        </button>
                     </div>
                 </div>
             </div>
