@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './LaunchPage.css' // Custom styles for the page
 import {
     QuestionBlock,
     OptionsBlock,
 } from '../components/forms/QuestionOptionsBlock' // Import both components
 import questionsOptionsData from '../assets/data/LaunchSurvey'
-import Explorepage from './ExplorePage'
+import { useNavigate } from 'react-router-dom'
 
 const LaunchPage = () => {
     const [selectedQuestion, setSelectedQuestion] = useState(null) // State to track the selected question
     const [selectedOptions, setSelectedOptions] = useState({}) // State to track selected options for each category
-    const [showcaseItems, setShowcaseItems] = useState(false)
+    const navigate = useNavigate() // Hook for navigation
 
     // Handles when a question is clicked
     const handleQuestionClick = (category) => {
@@ -27,13 +27,12 @@ const LaunchPage = () => {
         })
     }
 
-    useEffect(() => {
-        if (selectedOptions.tools) {
-            setShowcaseItems(
-                selectedOptions.tools.includes('Peer Case Studies')
-            )
-        }
-    }, [selectedOptions])
+    const navigatorToResult = () => {
+        console.log(selectedOptions.tools)
+        navigate('/result', {
+            state: { selectedOptions: selectedOptions.tools },
+        })
+    }
 
     return (
         <div className='launch-page'>
@@ -77,7 +76,9 @@ const LaunchPage = () => {
                         ))}
                 </div>
             </div>
-            {showcaseItems && <Explorepage></Explorepage>}
+            <div className='launch-submit' onClick={() => navigatorToResult()}>
+                submit
+            </div>
         </div>
     )
 }

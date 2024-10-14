@@ -3,9 +3,34 @@ import './ExplorePage.css'
 import { auth } from '../services/firebaseConfig'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
+import ShowcaseCarousel from '../components/layout/ShowcaseCarousel'
 
 const Explore = () => {
     const [user] = useAuthState(auth)
+
+    const useCases = [
+        {
+            title: 'Use Case 1',
+            description: 'Brief description of the first use case.',
+        },
+        {
+            title: 'Use Case 2',
+            description: 'Brief description of the second use case.',
+        },
+        {
+            title: 'Use Case 3',
+            description: 'Brief description of the third use case.',
+        },
+        {
+            title: 'Use Case 4',
+            description: 'Brief description of the fourth use case.',
+        },
+        {
+            title: 'Use Case 5',
+            description: 'Brief description of the fifth use case.',
+        },
+    ]
+
     return (
         <div className='explore-container'>
             <h1>Explore Peer Case Studies</h1>
@@ -69,118 +94,51 @@ const Explore = () => {
                         Case Studies. Peers in your market
                     </div>
                     <div className='explore-card-list'>
-                        <div className='explore-card'>
-                            <div className='explore-card-header'>
-                                <div className='explore-card-header-left'>
-                                    <div className='explore-card-header-circle'>
-                                        A
-                                    </div>
-                                    <div className='explore-card-header-nameBox'>
-                                        <div className='explore-card-header-name'>
-                                            Header
+                        <ShowcaseCarousel
+                            title='Get Started'
+                            width='400'
+                            padding='0'
+                        >
+                            {useCases.map((useCase, index) => (
+                                <div className='explore-card'>
+                                    <div className='explore-card-header'>
+                                        <div className='explore-card-header-left'>
+                                            <div className='explore-card-header-circle'>
+                                                A
+                                            </div>
+                                            <div className='explore-card-header-nameBox'>
+                                                <div className='explore-card-header-name'>
+                                                    Header
+                                                </div>
+                                                <div className='explore-card-header-sub'>
+                                                    Subhead
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className='explore-card-header-sub'>
-                                            Subhead
-                                        </div>
+                                        <div className='explore-card-header-right'></div>
                                     </div>
-                                </div>
-                                <div className='explore-card-header-right'></div>
-                            </div>
-                            <div className='explore-card-img'></div>
-                            <div className='explore-card-title'>
-                                <div className='explore-card-title-first'>
-                                    Title
-                                </div>
-                                <div>Subtitle</div>
-                            </div>
-                            <div className='explore-card-description'>
-                                Lorem ipsum dolor sit amet,consectetur
-                                adipiscing elit,sed do eiusmod tempor
-                            </div>
-                            <div className='explore-card-btnList'>
-                                <div className='explore-card-btn cancel'>
-                                    Enabled
-                                </div>
-                                <div className='explore-card-btn'>Enabled</div>
-                            </div>
-                        </div>
-                        <div className='explore-card'>
-                            <div className='explore-card-header'>
-                                <div className='explore-card-header-left'>
-                                    <div className='explore-card-header-circle'>
-                                        A
-                                    </div>
-                                    <div className='explore-card-header-nameBox'>
-                                        <div className='explore-card-header-name'>
-                                            Header
+                                    <div className='explore-card-img'></div>
+                                    <div className='explore-card-title'>
+                                        <div className='explore-card-title-first'>
+                                            Title
                                         </div>
-                                        <div className='explore-card-header-sub'>
-                                            Subhead
+                                        <div>Subtitle</div>
+                                    </div>
+                                    <div className='explore-card-description'>
+                                        Lorem ipsum dolor sit amet,consectetur
+                                        adipiscing elit,sed do eiusmod tempor
+                                    </div>
+                                    <div className='explore-card-btnList'>
+                                        <div className='explore-card-btn cancel'>
+                                            Enabled
+                                        </div>
+                                        <div className='explore-card-btn'>
+                                            Enabled
                                         </div>
                                     </div>
                                 </div>
-                                <div className='explore-card-header-right'></div>
-                            </div>
-                            <div className='explore-card-img'></div>
-                            <div className='explore-card-title'>
-                                <div className='explore-card-title-first'>
-                                    Title
-                                </div>
-                                <div>Subtitle</div>
-                            </div>
-                            <div className='explore-card-description'>
-                                Lorem ipsum dolor sit amet,consectetur
-                                adipiscing elit,sed do eiusmod tempor
-                            </div>
-                            <div className='explore-card-btnList'>
-                                <div className='explore-card-btn cancel'>
-                                    Enabled
-                                </div>
-                                <div className='explore-card-btn'>Enabled</div>
-                            </div>
-                        </div>
-                        {/* <div className='explore-card'>
-                            <div className='explore-card-header'>
-                                <div className='explore-card-header-left'>
-                                    <div className='explore-card-header-circle'>
-                                        A
-                                    </div>
-                                    <div className='explore-card-header-nameBox'>
-                                        <div className='explore-card-header-name'>
-                                            Header
-                                        </div>
-                                        <div className='explore-card-header-sub'>
-                                            Subhead
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='explore-card-header-right'></div>
-                            </div>
-                            <div className='explore-card-img'></div>
-                            <div className='explore-card-title'>
-                                <div className='explore-card-title-first'>
-                                    Title
-                                </div>
-                                <div>Subtitle</div>
-                            </div>
-                            <div className='explore-card-description'>
-                                Lorem ipsum dolor sit amet,consectetur
-                                adipiscing elit,sed do eiusmod tempor
-                            </div>
-                            <div className='explore-card-btnList'>
-                                <div className='explore-card-btn cancel'>
-                                    Enabled
-                                </div>
-                                <div className='explore-card-btn'>Enabled</div>
-                            </div>
-                        </div> */}
-
-                        <button className='scroll-button left'>
-                            <IoIosArrowBack size={80} />
-                        </button>
-                        <button className='scroll-button right'>
-                            <IoIosArrowForward size={80} />
-                        </button>
+                            ))}
+                        </ShowcaseCarousel>
                     </div>
                 </div>
             </div>

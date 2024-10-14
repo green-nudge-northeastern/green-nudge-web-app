@@ -105,12 +105,10 @@
 }
 
 .explore-card {
-    width: 280px;
     background-color: #fef7ff;
-    border-radius: 10px;
-    border: 1px solid #e4dee7;
+    /* border-radius: 10px; */
+    /* border: 1px solid #e4dee7; */
     text-align: left;
-    margin-right: 30px;
 }
 
 .explore-card-header {
