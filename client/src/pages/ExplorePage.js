@@ -7,6 +7,8 @@ import ShowcaseCarousel from '../components/layout/ShowcaseCarousel'
 
 const Explore = () => {
     const [user] = useAuthState(auth)
+    const width = (window.innerWidth - 600) / 3
+    console.log(width)
 
     const useCases = [
         {
@@ -96,7 +98,7 @@ const Explore = () => {
                     <div className='explore-card-list'>
                         <ShowcaseCarousel
                             title='Get Started'
-                            width='400'
+                            width={width}
                             padding='0'
                         >
                             {useCases.map((useCase, index) => (
