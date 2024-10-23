@@ -6,7 +6,7 @@ const ShowcaseCarousel = ({ title, children, width, padding }) => {
     const [currentIndex, setCurrentIndex] = useState(1) // Start at 1 (skip duplicated last item)
     const containerRef = useRef(null)
     const cardWidth = parseInt(width, 10)
-    const containerWidth = 3.2 * cardWidth
+    const containerWidth = 3.1 * cardWidth
 
     const prevIndex =
         currentIndex - 1 < 0 ? children.length - 1 : currentIndex - 1

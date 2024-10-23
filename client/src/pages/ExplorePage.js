@@ -2,7 +2,7 @@ import React from 'react'
 import './ExplorePage.css'
 import { auth } from '../services/firebaseConfig'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
+// import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import ShowcaseCarousel from '../components/layout/ShowcaseCarousel'
 
 const Explore = () => {
