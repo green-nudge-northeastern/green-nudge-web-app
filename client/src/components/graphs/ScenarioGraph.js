@@ -5,9 +5,64 @@ import './ScenarioGraph.css';
 import { MaterialPairs, MaterialAnnualEmission } from '../../assets/data/MaterialAnnualEmission';
 import { EnergyPairs, EnergyAnnualEmission } from '../../assets/data/EnergyAnnualEmission';
 import ScenarioSummary from './ScenarioSummary';
-import { ReactComponent as ScenarioIcon } from '../../assets/img/scenario-icon.svg';
 import { ImLeaf } from "react-icons/im";
 import LoadingSpinner from '../ui/LoadingSpinner';
+
+
+const baseSelectStyles = {
+  control: (provided) => ({
+    ...provided,
+    background: 'transparent',
+    display: 'flex',
+    borderColor: 'transparent',
+    boxShadow: 'none',
+    cursor: 'pointer',
+    '&:hover': {
+      borderColor: 'transparent',
+      borderBottom: '2px solid #CAFFCA',
+    },
+  }),
+  indicatorSeparator: (styles) => ({display:'none'}),
+  dropdownIndicator: styles => ({ 
+    ...styles, 
+    color: 'orange',
+    svg: {
+      width: '50px',
+      height: '35px'
+    }
+  })
+};
+
+const strategySelectStyles = {
+  ...baseSelectStyles,
+  dropdownIndicator: styles => ({
+    ...styles,
+    width: '35px',
+  }),
+};
+
+const customTheme = (theme) => ({
+  ...theme,
+  colors: {
+    ...theme.colors,
+    //after select dropdown option
+    primary50: "gray",
+    //Border and Background dropdown color
+    primary: "#CAFFFA",
+    //Background hover dropdown color
+    primary25: "gray",
+    //Background color
+    neutral0: "black",
+    //Border before select
+    neutral20: "#CAFFCA",
+    //No options color
+    neutral40: "#CAFFCA",
+    //scenario icon when click select
+    neutral60: "#42FFDD",
+    //Text color
+    neutral80: "#48fc8c",
+  },
+});
 
 
 const EmissionsGraph = () => {
@@ -16,7 +71,6 @@ const EmissionsGraph = () => {
   const [selectedSustainable, setSelectedSustainable] = useState(null);
   const [oldResource, setOldResource] = useState('');
   const [graphData, setGraphData] = useState([]);
-  const [years, setYears] = useState([]);
   const [isLoading, setIsLoading] = useState(false); // Add a loading state
 
   // Function to determine the old resource based on selected sustainable resource
@@ -36,7 +90,7 @@ const EmissionsGraph = () => {
 
     // Retrieve the years dynamically from the dataset (keys of the dataset)
     const availableYears = Object.keys(emissionData);
-    setYears(availableYears);
+    // setYears(availableYears);
 
 
     // Set sustainable options dynamically based on pairs (second element of each pair)
@@ -108,79 +162,6 @@ const EmissionsGraph = () => {
     }
   }, [selectedSustainable, strategy]);
 
-  const customStyles = {
-    control: (provided) => ({
-      ...provided,
-      background: 'transparent',
-      display: 'flex',
-      borderColor: 'transparent',
-      boxShadow: 'none',
-      cursor: 'pointer',
-      '&:hover': {
-        borderColor: 'transparent',
-        borderBottom: '2px solid #CAFFCA',
-      },
-    }),
-    indicatorSeparator: (styles) => ({display:'none'}),
-    dropdownIndicator: styles => ({ 
-      ...styles, 
-      color: 'orange',
-      svg: {
-        width: '35px',
-        height: '35px',
-        // strokeWidth: '1px',
-      }
-    })
-  };
-
-  const customStyles2 = {
-    control: (provided) => ({
-      ...provided,
-      background: 'transparent',
-      display: 'flex',
-      borderColor: 'transparent',
-      boxShadow: 'none',
-      cursor: 'pointer',
-      '&:hover': {
-        borderColor: 'transparent',
-        borderBottom: '2px solid #CAFFCA',
-      },
-    }),
-    indicatorSeparator: (styles) => ({display:'none'}),
-    dropdownIndicator: styles => ({ 
-      ...styles, 
-      color: 'orange',
-      svg: {
-        width: '35px',
-        height: '35px',
-        // strokeWidth: '1px',
-      }
-    })
-  };
-
-  const customTheme = (theme) => ({
-    ...theme,
-    colors: {
-      ...theme.colors,
-      //after select dropdown option
-      primary50: "gray",
-      //Border and Background dropdown color
-      primary: "#CAFFFA",
-      //Background hover dropdown color
-      primary25: "gray",
-      //Background color
-      neutral0: "black",
-      //Border before select
-      neutral20: "#CAFFCA",
-      //No options color
-      neutral40: "#CAFFCA",
-      //scenario icon when click select
-      neutral60: "#42FFDD",
-      //Text color
-      neutral80: "#48fc8c",
-    },
-  });
-
   return (
     <div>
       <div id="graph-title">
@@ -192,7 +173,7 @@ const EmissionsGraph = () => {
           <div className="description-strategy-select">
             <span className="strategy-prompt">See how </span>
             <Select
-                styles={customStyles2}
+                styles={strategySelectStyles}
                 classNamePrefix="strategy-dropdown"
                 theme={customTheme}
                 options={[
@@ -216,7 +197,7 @@ const EmissionsGraph = () => {
                 <Select
                   id="sustainable-dropdown"
                   theme={customTheme}
-                  styles={customStyles}
+                  styles={baseSelectStyles}
                   options={sustainableOptions}
                   value={sustainableOptions.find(opt => opt.value === selectedSustainable)}
                   onChange={(option) => setSelectedSustainable(option.value)}
