@@ -170,6 +170,9 @@ Here are just my two cents on what we can do next:
 
     Since an interactive prototype was not provided, also, some of the layouts and designs are not practical, we can start by refactoring the UI/UX design. Let's discuss the design changes and improvements we want to make to the web app, and confirm with Sneha.
 
+**Meet the Team & Explore Our Project:**
+https://youtu.be/J8UfteKKMO8
+
 
 
 
