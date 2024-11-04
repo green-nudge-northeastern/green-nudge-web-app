@@ -170,12 +170,11 @@ Here are just my two cents on what we can do next:
 
     Since an interactive prototype was not provided, also, some of the layouts and designs are not practical, we can start by refactoring the UI/UX design. Let's discuss the design changes and improvements we want to make to the web app, and confirm with Sneha.
 
-**Meet the Team & Explore Our Project:**
-https://youtu.be/J8UfteKKMO8
-
-
-
 
 # Notes
 
 For now, the back-end server is not implemented. We'll update this page with instructions on how to run the back-end server once it's implemented. We can first focus on the front-end development and testing.
+
+# Meet the Team & Explore Our Project
+
+https://youtu.be/J8UfteKKMO8
