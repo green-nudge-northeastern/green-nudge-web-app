@@ -1,37 +1,105 @@
 .upload-container {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #f9f9f9;
+    padding: 100px 20px;
+    max-width: 900px;
+    margin: 5vh auto;
+    background-color: var(--main-background-color);
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: var(--content-primary);
 }
 
 .upload-container h1 {
-    font-size: 24px;
+    font-size: 36px;
     margin-bottom: 20px;
+    color: var(--brand-bright-green);
 }
 
-.upload-container input[type="file"] {
-    display: block;
-    margin-bottom: 20px;
+.upload-container h3 {
+    margin: 50px auto;
+    font-weight: normal;
+}
+
+.file-drop-area {
+    border: 2px dashed var(--brand-light-green);
+    border-radius: 12px;
+    width: 200px;
+    height: 150px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--content-primary);
+    transition: background-color 0.3s;
+    position: relative;
+    padding: 20px;
+}
+
+.file-drop-area p {
+    font-size: 18px;
+    color: var(--content-primary);
+    position: absolute;
+    top: 12px;
+    padding: 0 30px;
+}
+
+.file-drop-area .plus-sign {
+    font-size: 60px;
+    color: var(--brand-light-green);
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+}
+
+.file-drop-area:hover {
+    background-color: var(--brand-mild-green);
+}
+
+.file-drop-area.drag-over {
+    background-color: var(--brand-mild-green);
+}
+
+.file-name {
+    font-size: 16px;
+    color: var(--content-secondary);
+}
+
+
+.file-name span {
+    color: var(--brand-bright-green);
 }
 
 .file-data {
-    background-color: #fff;
+    background-color: var(--dark-background-color);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: var(--content-secondary);
 }
 
 .file-data h2 {
-    font-size: 20px;
+    font-size: 24px;
     margin-bottom: 10px;
+    color: var(--brand-light-green);
 }
 
 .file-data pre {
-    background-color: #f4f4f4;
+    background-color: var(--brand-mild-green);
     padding: 10px;
     border-radius: 4px;
     overflow-x: auto;
+    color: var(--content-dark);
+    text-align: left;
+}
+
+.error-message {
+    color: rgb(255, 255, 255);
+    background-color: var(--brand-mild-green);
+    width: 45%;
+    margin: 10px auto;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 14px;
 }
