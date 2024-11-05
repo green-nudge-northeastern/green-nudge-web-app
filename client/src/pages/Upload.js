@@ -26,11 +26,12 @@ const Upload = () => {
 
     return (
         <div className="upload-container">
-            <h1>Upload XLSX File</h1>
+            <h1>Upload Your Bill</h1>
+            <h6>It will be parsed and saved into the database.</h6>
             <input type="file" onChange={handleFileUpload} />
             {fileData && (
                 <div className="file-data">
-                    <h2>Parsed Data</h2>
+                    <h2>Preview: Parsed Data</h2>
                     <pre>{JSON.stringify(fileData, null, 2)}</pre>
                 </div>
             )}
