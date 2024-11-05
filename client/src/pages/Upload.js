@@ -14,11 +14,13 @@ const Upload = () => {
             const data = new Uint8Array(e.target.result);
             const workbook = XLSX.read(data, { type: 'array' });
 
-            const firstSheetName = workbook.SheetNames[0];
-            const worksheet = workbook.Sheets[firstSheetName];
+            const sheetsData = {};
+            workbook.SheetNames.forEach(sheetName => {
+                const worksheet = workbook.Sheets[sheetName];
+                sheetsData[sheetName] = XLSX.utils.sheet_to_json(worksheet);
+            });
 
-            const jsonData = XLSX.utils.sheet_to_json(worksheet);
-            setFileData(jsonData);
+            setFileData(sheetsData);
         };
 
         reader.readAsArrayBuffer(file);
