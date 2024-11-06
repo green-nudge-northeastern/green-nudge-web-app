@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import './Upload.css';
 import * as XLSX from 'xlsx';
+import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
+import json from 'react-syntax-highlighter/dist/esm/languages/hljs/json';
+import { tomorrowNight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+
+// Register the JSON syntax
+SyntaxHighlighter.registerLanguage('json', json);
 
 const Upload = () => {
     const [fileData, setFileData] = useState(null);
@@ -9,10 +15,7 @@ const Upload = () => {
     const [error, setError] = useState('');
 
     const handleFileUpload = (file) => {
-        // Reset error message
-        setError('');
-
-        // Check for supported file type
+        setError(''); // Reset error message
         const validExtensions = ['xlsx'];
         const fileExtension = file.name.split('.').pop().toLowerCase();
         if (!validExtensions.includes(fileExtension)) {
@@ -87,11 +90,28 @@ const Upload = () => {
                     </>
                 )}
             </div>
+
             {fileData && (
-                <div className="file-data">
-                    <h2>Preview: Parsed Data</h2>
-                    <pre>{JSON.stringify(fileData, null, 2)}</pre>
-                </div>
+                <>
+                    <hr className="divider" /> {/* Divider */}
+                    <div className="file-data">
+                        <h3>Thank you! We'll evaluate your data shortly. You can preview the parsed data below.</h3>
+                        <div className="scrollable-preview">
+                            <SyntaxHighlighter
+                                language="json"
+                                style={tomorrowNight}
+                                customStyle={{
+                                    fontSize: '14px',
+                                    width: '100%',
+                                    whiteSpace: 'pre-wrap',
+                                    overflowWrap: 'break-word'
+                                }}
+                            >
+                                {JSON.stringify(fileData, null, 2)}
+                            </SyntaxHighlighter>
+                        </div>
+                    </div>
+                </>
             )}
         </div>
     );
