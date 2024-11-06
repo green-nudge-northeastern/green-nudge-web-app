@@ -1,5 +1,5 @@
 .upload-container {
-    padding: 100px 20px;
+    padding: 30px 20px;
     max-width: 900px;
     margin: 5vh auto;
     background-color: var(--main-background-color);
@@ -9,20 +9,21 @@
 }
 
 .upload-container h1 {
-    font-size: 36px;
+    font-size: 60px;
     margin-bottom: 20px;
     color: var(--brand-bright-green);
 }
 
 .upload-container h3 {
     margin: 50px auto;
+    font-size: 30px;
     font-weight: normal;
 }
 
 .file-drop-area {
     border: 2px dashed var(--brand-light-green);
     border-radius: 12px;
-    width: 200px;
+    width: 350px;
     height: 150px;
     margin: 20px auto;
     display: flex;
@@ -37,7 +38,7 @@
 }
 
 .file-drop-area p {
-    font-size: 18px;
+    font-size: 20px;
     color: var(--content-primary);
     position: absolute;
     top: 12px;
@@ -45,7 +46,7 @@
 }
 
 .file-drop-area .plus-sign {
-    font-size: 60px;
+    font-size: 70px;
     color: var(--brand-light-green);
     position: absolute;
     left: 50%;
@@ -63,7 +64,6 @@
 
 .file-name {
     font-size: 16px;
-    color: var(--content-secondary);
 }
 
 
@@ -72,25 +72,21 @@
 }
 
 .file-data {
-    background-color: var(--dark-background-color);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    color: var(--content-secondary);
 }
 
-.file-data h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: var(--brand-light-green);
-}
+/* .file-data h3 {
+    color: orange;
+} */
 
 .file-data pre {
-    background-color: var(--brand-mild-green);
     padding: 10px;
     border-radius: 4px;
     overflow-x: auto;
     color: var(--content-dark);
+    width: 80%;
+    margin: 0 auto;
     text-align: left;
 }
 
@@ -101,5 +97,22 @@
     margin: 10px auto;
     padding: 8px;
     border-radius: 10px;
-    font-size: 14px;
+    font-size: 16px;
+}
+
+.scrollable-preview {
+    max-height: 300px;
+    overflow-y: auto;
+    width: 70%;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #1d2021; /* tomorrow-night */
+}
+
+.divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--brand-mild-green), transparent);
+    border: none;
+    margin: 50px auto 10px auto;
 }
