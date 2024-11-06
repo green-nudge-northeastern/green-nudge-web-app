@@ -90,6 +90,11 @@
     text-align: left;
 }
 
+.file-data p {
+    font-size: 20px;
+    color: var(--content-primary);
+}
+
 .error-message {
     color: rgb(255, 255, 255);
     background-color: var(--brand-mild-green);

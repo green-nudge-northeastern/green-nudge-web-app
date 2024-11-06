@@ -11,19 +11,22 @@ SyntaxHighlighter.registerLanguage('json', json);
 const Upload = () => {
     const [fileData, setFileData] = useState(null);
     const [fileName, setFileName] = useState('');
+    const [fileSize, setFileSize] = useState(0);
+    const [jsonSize, setJsonSize] = useState(0);
     const [dragOver, setDragOver] = useState(false);
     const [error, setError] = useState('');
 
     const handleFileUpload = (file) => {
         setError(''); // Reset error message
-        const validExtensions = ['xlsx'];
+        const validExtensions = ['xlsx', 'xls','numbers'];
         const fileExtension = file.name.split('.').pop().toLowerCase();
         if (!validExtensions.includes(fileExtension)) {
-            setError('Unsupported file type. Please upload a .xlsx file.');
+            setError('Unsupported file type. Please upload a .xlsx/.xls/.numbers file.');
             return;
         }
 
         setFileName(file.name); // Set the file name
+        setFileSize(file.size); // Set the file size
         const reader = new FileReader();
 
         reader.onload = (e) => {
@@ -37,6 +40,7 @@ const Upload = () => {
             });
 
             setFileData(sheetsData);
+            setJsonSize(new Blob([JSON.stringify(sheetsData)]).size); // Set the JSON size
         };
 
         reader.readAsArrayBuffer(file);
@@ -82,7 +86,7 @@ const Upload = () => {
                     style={{ display: 'none' }}
                 />
                 {fileName ? (
-                    <p className="file-name">Uploaded File: <span>{fileName}</span></p>
+                    <p className="file-name">Uploaded File: <span>{fileName}</span> ({(fileSize / 1024).toFixed(2)} KB)</p>
                 ) : (
                     <>
                         <span className="plus-sign">+</span>
@@ -96,6 +100,9 @@ const Upload = () => {
                     <hr className="divider" /> {/* Divider */}
                     <div className="file-data">
                         <h3>Thank you! We'll evaluate your data shortly. You can preview the parsed data below.</h3>
+                        {/* TODO: In production, comment out next two lines */}
+                        <p>JSON Size: {(jsonSize / 1024).toFixed(2)} KB</p>
+                        <p>Space Saved: {((fileSize - jsonSize) / 1024).toFixed(2)} KB ({((1 - jsonSize / fileSize) * 100).toFixed(2)}%)</p>
                         <div className="scrollable-preview">
                             <SyntaxHighlighter
                                 language="json"
