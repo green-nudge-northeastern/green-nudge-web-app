@@ -64,6 +64,7 @@ const Footer = () => {
             </div>
 
             <div className="footer-bottom">
+                <p className="footer-legal">This website is developed following the Green Software guidelines. </p>
                 <p className="footer-legal">&copy; {new Date().getFullYear()} GreenNudge. All Rights Reserved.</p>
             </div>
         </footer>
