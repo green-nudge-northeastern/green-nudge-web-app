@@ -53,34 +53,17 @@ function HomePage() {
         </FadeInSection>
       </section>
 
-       {/* Section 3 (Use Cases) */}
-       <section id="useCases">
-        <FadeInSection>
-          <UseCases />
-        </FadeInSection>
-      </section>
-
-      {/* Section 4 (User Stories) */}
-      <section id="userStories">
-        <FadeInSection>
-          <UserStories />
-        </FadeInSection>
-      </section>
-
-       {/* Section 5 (Trusted Vendors) */}
-       <section id="trustedVendors">
-        <FadeInSection>
-          <TrustedVendors />
-        </FadeInSection>
-      </section>
-
       {/* Section 6 (Join Us) */}
       <section id="joinUs">
         <FadeInSection
           textAlign='center'
           style={{ width: '900px' }}
         >
-        <h1>Start Innovation <span className="slogan-highlight">Today</span></h1>
+        <h1>
+          Let's build a
+          <span className="slogan-highlight"> sustainability arm </span>
+          for your company together
+        </h1>
         <div className="join-us">
           <Link to="/login">
             <button className="login-button">Log In</button>

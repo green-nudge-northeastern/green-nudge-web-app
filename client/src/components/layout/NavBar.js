@@ -27,9 +27,6 @@ function NavBar() {
         <ul className="navbar-links">
           <li><a href={`${window.location.origin}/#about`}>Home</a></li> 
           <li><a href={`${window.location.origin}/#demos`}>Demos</a></li>
-          <li><a href={`${window.location.origin}/#useCases`}>Get Started</a></li> 
-          <li><a href={`${window.location.origin}/#userStories`}>User Stories</a></li>
-          <li><a href={`${window.location.origin}/#trustedVendors`}>Trusted Vendors</a></li>
           <li><a href={`${window.location.origin}/#contact`}>Contact</a></li>  
 
         </ul>
