@@ -4,9 +4,7 @@ import FadeInSection from '../components/layout/FadeInSection';
 import shapes from '../assets/img/shapes_1000x1000.png';
 import EmissionsGraph from '../components/graphs/ScenarioGraph';
 import SupplyChainNetwork from '../components/ui/SupplyChainNetwork';
-import UseCases from '../components/layout/UseCases';
-import UserStories from '../components/layout/UserStories';
-import TrustedVendors from '../components/layout/TrustedVendors';
+import HowItWorks from '../components/ui/HowItWorks';
 import { BiArrowToTop } from "react-icons/bi";
 import { Link } from 'react-router-dom';
 
@@ -53,7 +51,14 @@ function HomePage() {
         </FadeInSection>
       </section>
 
-      {/* Section 6 (Join Us) */}
+      {/* Section 3 (How It Works) */}
+      <section id="howItWorks">
+        <FadeInSection>
+          <HowItWorks />
+        </FadeInSection>
+      </section>
+
+      {/* Section 4 (Join Us) */}
       <section id="joinUs">
         <FadeInSection
           textAlign='center'

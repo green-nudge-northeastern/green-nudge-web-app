@@ -1,0 +1,61 @@
+.howitworks-container {
+    /* background-color: #223522; */
+    color: #E5FFE5;
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.howitworks-heading {
+    margin-bottom: 20px;
+    color: var(--content-primary);
+}
+
+.howitworks-steps-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.howitworks-step {
+    display: grid;
+    grid-template-columns: 140px auto; /* Ensures consistent widths for number and content */
+    align-items: center;
+    background-color: #4A5D4A;
+    border-radius: 100px;
+    padding: 30px;
+    margin: 10px 0;
+    width: 90%;
+    max-width: 1000px;
+}
+
+.howitworks-step-number {
+    background-color: #E5FFE5;
+    color: #1C1C1C;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.howitworks-step-content {
+    text-align: center;
+}
+
+.howitworks-step-title {
+    color: #A0FF90;
+    font-size: 32px;
+    margin: 0;
+}
+
+.howitworks-step-description {
+    color: #CFCFCF;
+    font-size: 25px;
+    margin: 5px 0 0;
+}
