@@ -1,0 +1,123 @@
+.upload-container {
+    padding: 30px 20px;
+    max-width: 900px;
+    margin: 5vh auto;
+    background-color: var(--main-background-color);
+    border-radius: 8px;
+    text-align: center;
+    color: var(--content-primary);
+}
+
+.upload-container h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+    color: var(--brand-bright-green);
+}
+
+.upload-container h3 {
+    margin: 50px auto;
+    font-size: 30px;
+    font-weight: normal;
+}
+
+.file-drop-area {
+    border: 2px dashed var(--brand-light-green);
+    border-radius: 12px;
+    width: 350px;
+    height: 150px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--content-primary);
+    transition: background-color 0.3s;
+    position: relative;
+    padding: 20px;
+}
+
+.file-drop-area p {
+    font-size: 20px;
+    color: var(--content-primary);
+    position: absolute;
+    top: 12px;
+    padding: 0 30px;
+}
+
+.file-drop-area .plus-sign {
+    font-size: 70px;
+    color: var(--brand-light-green);
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+}
+
+.file-drop-area:hover {
+    background-color: var(--brand-mild-green);
+}
+
+.file-drop-area.drag-over {
+    background-color: var(--brand-mild-green);
+}
+
+.file-name {
+    font-size: 16px;
+}
+
+
+.file-name span {
+    color: var(--brand-bright-green);
+}
+
+.file-data {
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* .file-data h3 {
+    color: orange;
+} */
+
+.file-data pre {
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+    color: var(--content-dark);
+    width: 80%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.file-data p {
+    font-size: 20px;
+    color: var(--content-primary);
+}
+
+.error-message {
+    color: rgb(255, 255, 255);
+    background-color: var(--brand-mild-green);
+    width: 45%;
+    margin: 10px auto;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.scrollable-preview {
+    max-height: 300px;
+    overflow-y: auto;
+    width: 70%;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #1d2021; /* tomorrow-night */
+}
+
+.divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--brand-mild-green), transparent);
+    border: none;
+    margin: 50px auto 10px auto;
+}

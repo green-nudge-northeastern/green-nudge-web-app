@@ -17,8 +17,10 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "^5.0.1",
     "react-select": "^5.8.1",
+    "react-syntax-highlighter": "^15.6.1",
     "web-vitals": "^2.1.4",
-    "webpack": "^5.95.0"
+    "webpack": "^5.95.0",
+    "xlsx": "^0.18.5"
   },
   "scripts": {
     "start": "react-scripts start --openssl-legacy-provider",

@@ -9,6 +9,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute' // Import the prot
 import Dashboard from './pages/Dashboard'
 import Footer from './components/layout/Footer'
 import ResultPage from './pages/ResultPage'
+import Upload from './pages/Upload'; // this is the page where we upload the xlsx file!
 
 function App() {
     return (
@@ -33,6 +34,14 @@ function App() {
                         element={
                             <ProtectedRoute>
                                 <Dashboard />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='/upload'
+                        element={
+                            <ProtectedRoute>
+                                <Upload />
                             </ProtectedRoute>
                         }
                     />

@@ -126,6 +126,7 @@
     border: 2px solid var(--brand-mild-green);
     border-radius: 5px;
     background-color: var(--brand-mild-green);
+    font-size: 12px;
 }
 
 .email-input::placeholder {
