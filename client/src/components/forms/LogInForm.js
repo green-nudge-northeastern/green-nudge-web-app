@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../services/firebaseConfig';
+import { signIn } from '@aws-amplify/auth';
 import './AuthForm.css';
 
-const LogInForm = ({ onLoginSuccess }) => { // Accept the onLoginSuccess prop
+const LogInForm = ({ onLoginSuccess }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -11,26 +10,18 @@ const LogInForm = ({ onLoginSuccess }) => { // Accept the onLoginSuccess prop
   const handleLogIn = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      
-      // Call onLoginSuccess after a successful login
+      await signIn(email, password);
       onLoginSuccess();
     } catch (err) {
-      // set specific login error messages
-      // for reference, check out error codes here: 
-      // https://firebase.google.com/docs/auth/admin/errors
       switch (err.code) {
-        case 'auth/invalid-email':
-          setError('Invalid email address.');
-          break;
-        case 'auth/user-disabled':
-          setError('This user account has been disabled. Please contact support.');
-          break;
-        case 'auth/user-not-found':
+        case 'UserNotFoundException':
           setError('User not found. Please check your email or sign up.');
           break;
-        case 'auth/invalid-credential':
-          setError('Invalid credentials. Please check your email or password.');
+        case 'NotAuthorizedException':
+          setError('Incorrect username or password.');
+          break;
+        case 'UserNotConfirmedException':
+          setError('User not confirmed. Please check your email for confirmation instructions.');
           break;
         default:
           setError(`Login failed. Please contact support with error code: ${err.code}`);
@@ -39,8 +30,7 @@ const LogInForm = ({ onLoginSuccess }) => { // Accept the onLoginSuccess prop
   };
 
   return (
-    // disabled HTML5 validation
-    <form className="auth-form" onSubmit={handleLogIn} noValidate> 
+    <form className="auth-form" onSubmit={handleLogIn} noValidate>
       <label className="auth-label" htmlFor="email">Email</label>
       <input
         id="email"

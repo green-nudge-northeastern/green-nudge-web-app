@@ -1,13 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Dashboard.css';
-import { auth } from '../services/firebaseConfig';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import { getCurrentUser } from '@aws-amplify/auth';
 
 const Dashboard = () => {
-    const [user] = useAuthState(auth);
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            try {
+                const currentUser = await getCurrentUser();
+                setUser(currentUser);
+            } catch (error) {
+                console.error('Error fetching user', error);
+                setUser(null);
+            }
+        };
+
+        fetchUser();
+    }, []);
+
     return (
         <div className="dashboard-container">
-            <h1>Welcome, {user.displayName || 'GreenNudge User'}!</h1>
+            <h1>Welcome, {user ? user.attributes.name : 'GreenNudge User'}!</h1>
             <p>This is your personalized dashboard. Here you can manage your account, track your progress, and access personalized tools.</p>
 
             {/* Stats Section */}
@@ -25,7 +39,6 @@ const Dashboard = () => {
                     <p>3 Unread</p>
                 </div>
             </div>
-
         </div>
     );
 };

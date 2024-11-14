@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-greennudgeweb-dev-cf6ba-authRole",
+      "UnauthRoleArn": "arn:aws:iam::418272756758:role/amplify-greennudgeweb-dev-cf6ba-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::418272756758:role/amplify-greennudgeweb-dev-cf6ba-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-greennudgeweb-dev-cf6ba-deployment",
+      "UnauthRoleName": "amplify-greennudgeweb-dev-cf6ba-unauthRole",
+      "StackName": "amplify-greennudgeweb-dev-cf6ba",
+      "StackId": "arn:aws:cloudformation:us-east-1:418272756758:stack/amplify-greennudgeweb-dev-cf6ba/0f81c230-a220-11ef-9287-0ec73040e1b3",
+      "AmplifyAppId": "d3hmt8ytm62vhe"
+    },
+    "categories": {
+      "auth": {
+        "greennudgewebbb211ea7": {}
+      }
+    }
+  }
+}

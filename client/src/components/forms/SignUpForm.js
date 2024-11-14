@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { signUp } from '@aws-amplify/auth';
 import { useNavigate } from 'react-router-dom';
-import { auth } from '../../services/firebaseConfig'; // Import the Firebase auth object
 import './AuthForm.css';
 
 const SignUpForm = () => {
@@ -14,28 +13,26 @@ const SignUpForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
-
-      // Update the user's profile with the full name
-      await updateProfile(user, {
-        displayName: fullName,
+      const { user } = await signUp({
+        username: email,
+        password,
+        attributes: {
+          email,
+          name: fullName, // Use the full name attribute
+        },
       });
 
       // Redirect to the homepage after successful sign-up
       navigate('/');
     } catch (err) {
-      // set specific signup error messages
-      // for reference, check out error codes here: 
-      // https://firebase.google.com/docs/auth/admin/errors
       switch (err.code) {
-        case 'auth/invalid-email':
+        case 'InvalidParameterException':
           setError('Invalid email address.');
           break;
-        case 'auth/email-already-in-use':
+        case 'UsernameExistsException':
           setError('Email already in use. Please log in or reset your password.');
           break;
-        case 'auth/invalid-password':
+        case 'InvalidPasswordException':
           setError('Invalid password. Password must be at least 6 characters.');
           break;
         default:

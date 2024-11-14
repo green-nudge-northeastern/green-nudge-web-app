@@ -1,14 +1,27 @@
-import React from 'react'
-import './ExplorePage.css'
-import { auth } from '../services/firebaseConfig'
-import { useAuthState } from 'react-firebase-hooks/auth'
-// import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
-import ShowcaseCarousel from '../components/layout/ShowcaseCarousel'
+import React, { useEffect, useState } from 'react';
+import './ExplorePage.css';
+import { getCurrentUser } from '@aws-amplify/auth'; // Import AWS Amplify Auth
+import ShowcaseCarousel from '../components/layout/ShowcaseCarousel';
 
 const Explore = () => {
-    const [user] = useAuthState(auth)
-    const width = (window.innerWidth - 600) / 3
-    console.log(width)
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            try {
+                const currentUser = await getCurrentUser();
+                setUser(currentUser);
+            } catch (error) {
+                console.error('Error fetching user', error);
+                setUser(null);
+            }
+        };
+
+        fetchUser();
+    }, []);
+
+    const width = (window.innerWidth - 600) / 3;
+    console.log(width);
 
     const useCases = [
         {
@@ -31,7 +44,7 @@ const Explore = () => {
             title: 'Use Case 5',
             description: 'Brief description of the fifth use case.',
         },
-    ]
+    ];
 
     return (
         <div className='explore-container'>
@@ -102,7 +115,7 @@ const Explore = () => {
                             padding='0'
                         >
                             {useCases.map((useCase, index) => (
-                                <div className='explore-card'>
+                                <div className='explore-card' key={index}>
                                     <div className='explore-card-header'>
                                         <div className='explore-card-header-left'>
                                             <div className='explore-card-header-circle'>
@@ -127,8 +140,8 @@ const Explore = () => {
                                         <div>Subtitle</div>
                                     </div>
                                     <div className='explore-card-description'>
-                                        Lorem ipsum dolor sit amet,consectetur
-                                        adipiscing elit,sed do eiusmod tempor
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit, sed do eiusmod tempor
                                     </div>
                                     <div className='explore-card-btnList'>
                                         <div className='explore-card-btn cancel'>
@@ -145,7 +158,7 @@ const Explore = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Explore
+export default Explore;

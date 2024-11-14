@@ -1,15 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { signOut } from 'firebase/auth';
-import { auth } from '../../services/firebaseConfig'; // Import Firebase auth for signOut
+import { signOut } from '@aws-amplify/auth'; // Import AWS Amplify Auth
 import { getAltImage } from '../../services/userUtils';
 import './ProfileDropdown.css'; // Import the new CSS file for this component
 import { ReactComponent as ProfileIcon } from '../../assets/img/profile-icon-circle.svg';
 
 const ProfileDropdown = ({ user }) => {
-  const handleLogout = () => {
-    signOut(auth)
-      .catch((error) => console.error('Logout failed', error));
+  const handleLogout = async () => {
+    try {
+      await signOut();
+    } catch (error) {
+      console.error('Logout failed', error);
+    }
   };
 
   return (
@@ -19,11 +21,11 @@ const ProfileDropdown = ({ user }) => {
         {user && (
           <div className="profile-header">
             <img 
-              src={getAltImage(user.photoURL, user.displayName)}
+              src={getAltImage(user.attributes.picture, user.attributes.name)}
               alt="Profile" 
               className="profile-dropdown-pic" 
             />
-            <p className="profile-dropdown-name">{user.displayName || 'User'}</p>
+            <p className="profile-dropdown-name">{user.attributes.name || 'User'}</p>
           </div>
         )}
 

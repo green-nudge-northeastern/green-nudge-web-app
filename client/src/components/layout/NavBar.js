@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { auth } from '../../services/firebaseConfig'; // Import Firebase auth
-import { onAuthStateChanged } from 'firebase/auth'; // Remove signOut here
+import { getCurrentUser } from '@aws-amplify/auth'; // Import AWS Amplify Auth
 import './NavBar.css';
 import GreenNudgeLogo from '../../assets/img/icon_700x700.png';
 import ProfileDropdown from './ProfileDropdown'; // Import the ProfileDropdown component
@@ -10,10 +9,16 @@ function NavBar() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser); // Set the user when they log in or log out
-    });
-    return () => unsubscribe(); // Cleanup subscription on unmount
+    const checkUser = async () => {
+      try {
+        const currentUser = await getCurrentUser();
+        setUser(currentUser);
+      } catch (error) {
+        setUser(null);
+      }
+    };
+
+    checkUser();
   }, []);
 
   return (
@@ -28,7 +33,6 @@ function NavBar() {
           <li><a href={`${window.location.origin}/#about`}>Home</a></li> 
           <li><a href={`${window.location.origin}/#demos`}>Demos</a></li>
           <li><a href={`${window.location.origin}/#contact`}>Contact</a></li>  
-
         </ul>
         <div className="navbar-buttons">
           {user ? (

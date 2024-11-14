@@ -1,18 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '../../services/firebaseConfig';
+import { getCurrentUser } from '@aws-amplify/auth';
 import LoadingSpinner from '../ui/LoadingSpinner'; // Import the spinner component
 
 const ProtectedRoute = ({ children }) => {
-  const [user, loading] = useAuthState(auth); // Capture loading state as well
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
   const location = useLocation(); // Capture the location the user was trying to access
 
+  useEffect(() => {
+    const checkUser = async () => {
+      try {
+        const currentUser = await getCurrentUser();
+        setUser(currentUser);
+      } catch (error) {
+        setUser(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    checkUser();
+  }, []);
+
   if (loading) {
-    // Display the loading spinner while Firebase is checking the user
-    return (
-        <LoadingSpinner />
-    );
+    // Display the loading spinner while checking the user
+    return <LoadingSpinner />;
   }
 
   if (!user) {
