@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { signIn } from '@aws-amplify/auth';
+import { signIn } from '@aws-amplify/auth'; // Import signIn directly
 import './AuthForm.css';
 
 const LogInForm = ({ onLoginSuccess }) => {
@@ -10,9 +10,11 @@ const LogInForm = ({ onLoginSuccess }) => {
   const handleLogIn = async (e) => {
     e.preventDefault();
     try {
+      // Use signIn method directly
       await signIn(email, password);
       onLoginSuccess();
     } catch (err) {
+      console.error('Error during sign in:', err); // Log the error for debugging
       switch (err.code) {
         case 'UserNotFoundException':
           setError('User not found. Please check your email or sign up.');

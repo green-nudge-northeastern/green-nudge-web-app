@@ -33,7 +33,7 @@ const SignUpForm = () => {
           setError('Email already in use. Please log in or reset your password.');
           break;
         case 'InvalidPasswordException':
-          setError('Invalid password. Password must be at least 6 characters.');
+          setError('Invalid password. Password must be at least 8 characters.');
           break;
         default:
           setError(`Sign-up failed. Please contact support with error code: ${err.code}`);
