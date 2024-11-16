@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { signIn } from '@aws-amplify/auth'; // Import signIn directly
+import { signIn } from '@aws-amplify/auth'; // Correct import
 import './AuthForm.css';
 
 const LogInForm = ({ onLoginSuccess }) => {
@@ -11,7 +11,7 @@ const LogInForm = ({ onLoginSuccess }) => {
     e.preventDefault();
     try {
       // Use signIn method directly
-      await signIn(email, password);
+      await signIn({username:email, password:password});
       onLoginSuccess();
     } catch (err) {
       console.error('Error during sign in:', err); // Log the error for debugging
@@ -32,35 +32,29 @@ const LogInForm = ({ onLoginSuccess }) => {
   };
 
   return (
-    <form className="auth-form" onSubmit={handleLogIn} noValidate>
-      <label className="auth-label" htmlFor="email">Email</label>
-      <input
-        id="email"
-        className="auth-input"
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Email"
-        required
-      />
-
-      <label className="auth-label" htmlFor="password">Password</label>
-      <input
-        id="password"
-        className="auth-input"
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
-        required
-      />
-
-      <button className="auth-button" type="submit">Log In</button>
-      {error ? (
-        <p className="auth-error-text">{error}</p>
-      ) : (
-        <p className="auth-error-text" style={{ visibility: 'hidden' }}>No error</p>
-      )}
+    <form onSubmit={handleLogIn}>
+      <label>
+        Email
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
+          required
+        />
+      </label>
+      <label>
+        Password
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+          required
+        />
+      </label>
+      <button type="submit">Log In</button>
+      {error && <p className="error">{error}</p>}
     </form>
   );
 };
