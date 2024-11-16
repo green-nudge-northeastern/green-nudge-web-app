@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import { signIn } from '@aws-amplify/auth'; // Correct import
 import './AuthForm.css';
+import { useNavigate } from 'react-router-dom';
 
-const LogInForm = ({ onLoginSuccess }) => {
+const LogInForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+
+  const navigate = useNavigate(); // Hook for navigation
 
   const handleLogIn = async (e) => {
     e.preventDefault();
     try {
       // Use signIn method directly
       await signIn({username:email, password:password});
-      onLoginSuccess();
+      navigate('/');
     } catch (err) {
       console.error('Error during sign in:', err); // Log the error for debugging
       switch (err.code) {

@@ -13,6 +13,7 @@ function NavBar() {
       try {
         const currentUser = await getCurrentUser();
         setUser(currentUser);
+        console.log('User:', currentUser);
       } catch (error) {
         setUser(null);
       }
