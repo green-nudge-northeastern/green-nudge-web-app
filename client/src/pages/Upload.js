@@ -132,41 +132,56 @@ const Upload = () => {
     if (file) handleFileUpload(file);
   };
 
+
   return (
-    <div
-      className={`upload-container ${dragOver ? 'drag-over' : ''}`}
-      onDragOver={handleDragOver}
-      onDragLeave={handleDragLeave}
-      onDrop={handleDrop}
-    >
-      <h2>Upload Your Emissions Data</h2>
-      <p>We will evaluate the data and get back to you with your customized scenario modelling.</p>
-      {error && <p className="error">{error}</p>}
-      <button onClick={() => document.getElementById('fileInput').click()}>
+    <div className="upload-container">
+      <h1>Upload Your Emissions Data</h1>
+      <h3>We will evaluate the data and get back to you with your customized scenario modelling.</h3>
+      {error && <p className="error-message">{error}</p>}
+      <div
+        className={`file-drop-area ${dragOver ? 'drag-over' : ''}`}
+        onDragOver={handleDragOver}
+        onDragLeave={handleDragLeave}
+        onDrop={handleDrop}
+        onClick={() => document.getElementById('fileInput').click()}
+      >
+        <input
+          type="file"
+          id="fileInput"
+          onChange={handleInputChange}
+          style={{ display: 'none' }}
+        />
         {fileName ? (
-          `Uploaded File: ${fileName} (${(fileSize / 1024).toFixed(2)} KB)`
+          <p className="file-name">Uploaded File: <span>{fileName}</span> ({(fileSize / 1024).toFixed(2)} KB)</p>
         ) : (
           <>
-            <span>+</span>
-            Click or Drag a file here to upload
+            <span className="plus-sign">+</span>
+            <p>Click or Drag a file here to upload</p>
           </>
         )}
-      </button>
-      <input
-        id="fileInput"
-        type="file"
-        onChange={handleInputChange}
-        style={{ display: 'none' }}
-      />
+      </div>
+
       {fileData && (
         <>
-          <hr />
-          <h3>Thank you! We'll evaluate your data shortly. You can preview the parsed data below.</h3>
-          <p>JSON Size: {(jsonSize / 1024).toFixed(2)} KB</p>
-          <p>Space Saved: {((fileSize - jsonSize) / 1024).toFixed(2)} KB ({((1 - jsonSize / fileSize) * 100).toFixed(2)}%)</p>
-          <SyntaxHighlighter language="json" style={tomorrowNight}>
-            {JSON.stringify(fileData, null, 2)}
-          </SyntaxHighlighter>
+          <hr className="divider" /> {/* Divider */}
+          <div className="file-data">
+            <h3>Thank you! We'll evaluate your data shortly. You can preview the parsed data below.</h3>
+            {/* TODO: In production, comment out next two lines */}
+            {/* <p>JSON Size: {(jsonSize / 1024).toFixed(2)} KB</p>
+            <p>Space Saved: {((fileSize - jsonSize) / 1024).toFixed(2)} KB ({((1 - jsonSize / fileSize) * 100).toFixed(2)}%)</p> */}
+            <div className="scrollable-preview">
+              <SyntaxHighlighter
+                language="json"
+                style={tomorrowNight}
+                customStyle={{
+                  fontSize: '14px',
+                  width: '100%',
+                }}
+              >
+                {JSON.stringify(fileData, null, 2)}
+              </SyntaxHighlighter>
+            </div>
+          </div>
         </>
       )}
     </div>

@@ -78,43 +78,47 @@ const SignUpForm = () => {
     }
   };
 
+
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Full Name
-        <input
-          type="text"
-          value={fullName}
-          onChange={(e) => setFullName(e.target.value)}
-          placeholder="Full Name"
-          required
-        />
-      </label>
-      <label>
-        Business Email
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Business Email"
-          required
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-          required
-        />
-      </label>
-      <button type="submit">Sign Up</button>
+    <form className="auth-form" onSubmit={handleSubmit} noValidate>
+      <label className="auth-label" htmlFor="fullName">Full Name</label>
+      <input
+        id="fullName"
+        className="auth-input"
+        type="text"
+        value={fullName}
+        onChange={(e) => setFullName(e.target.value)}
+        placeholder="Full Name"
+        required
+      />
+
+      <label className="auth-label" htmlFor="email">Business Email</label>
+      <input
+        id="email"
+        className="auth-input"
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="Business Email"
+        required
+      />
+
+      <label className="auth-label" htmlFor="password">Password</label>
+      <input
+        id="password"
+        className="auth-input"
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        placeholder="Password"
+        required
+      />
+
+      <button className="auth-button" type="submit">Sign Up</button>
       {error ? (
-        <p>{error}</p>
+        <p className="auth-error-text">{error}</p>
       ) : (
-        <p>No error</p>
+        <p className="auth-error-text" style={{ visibility: 'hidden' }}> </p>
       )}
     </form>
   );
