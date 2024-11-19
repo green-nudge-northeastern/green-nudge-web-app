@@ -66,7 +66,7 @@ const Upload = () => {
 
       s3.upload(s3Params, async (err, data) => {
         if (err) {
-          setError('Error uploading file to S3');
+          setError('Error uploading file to S3:\n' + err.message);
           console.error(err);
           return;
         }
