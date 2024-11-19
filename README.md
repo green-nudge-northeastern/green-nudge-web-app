@@ -2,23 +2,20 @@
 
 This page briefly introduces how to set up the development environment and run the web app. It is using React.js as the front-end framework and Node.js as the back-end server.
 
-**Current Page Layout Preview**
-
-<img width="600" alt="HomePage" src="https://github.com/user-attachments/assets/f1851f32-ac86-47fb-be7e-0ce6f4bf6b22">
-
-<img width="600" alt="LogInPage" src="https://github.com/user-attachments/assets/68e80d99-60b0-4f7e-a52c-d63d0f7a3a4a">
-
-<img width="600" alt="LaunchPage" src="https://github.com/user-attachments/assets/96108ac4-04ad-4d07-9dfa-c6868423bb81">
-
 
 
 **Table of Contents:**
 - [Green Nudge Web Development Page](#green-nudge-web-development-page)
+- [Meet the Team \& Explore Our Project](#meet-the-team--explore-our-project)
 - [Concepts and Resources](#concepts-and-resources)
 - [Understanding the Project Structure](#understanding-the-project-structure)
 - [Getting Started](#getting-started)
 - [What next?](#what-next)
 - [Notes](#notes)
+
+# Meet the Team & Explore Our Project
+
+https://youtu.be/J8UfteKKMO8
 
 # Concepts and Resources
 
@@ -57,7 +54,7 @@ It may be helpful to understand the following concepts to proceed with the devel
 
     For now, I chose to use ***Google Firebase*** for the web app since it's free and easy to set up and link to our custom log-in page. You can check out the [Firebase Authentication documentation](https://firebase.google.com/docs/auth) to learn more about it.
 
-    Yuning's credentials are already set up and shared in `services/firebaseConfig.js`. Feel free to use them for now, but we can create a new Firebase project and set up new credentials later.
+    Yuning's credentials are shared in the team chat. Please refer to [client/.env](client/.env) for the set up of environment variables, referenced by `services/firebaseConfig.js`.
 
     Some other popular authentication strategies include ***Auth0***, ***JWT***, and ***AWS Cognito***. We can discuss and decide on the best strategy for our project in the future.
 
@@ -80,21 +77,20 @@ GREEN-NUDGE-WEB-APP
 │
 ├── client/             # Frontend (React) code
 │   ├── public/         # Public assets (index.html, favicon, etc.)
-│   ├── src/            # Source files for React
-│   │   ├── assets/     # Images, logos, fonts, etc.
-│   │   ├── components/ # UI components
-│   │   ├── pages/      # Main pages in the app
-│   │   ├── services/   # API calls and utility functions
-│   │   ├── context/    # React contexts
-│   │   └── App.js      # Main React component
-│   └── package.json    # React project dependencies
+│   └── src/            # Source files for React
+│       ├── assets/     # Images, logos, fonts, etc.
+│       ├── components/ # UI components
+│       ├── pages/      # Main pages in the app
+│       ├── services/   # API calls and utility functions
+│       ├── context/    # React contexts
+│       ├── App.js      # Main React component
+│       ├── package.json    # React project dependencies
+│       └── .env        # Environment variables (for security reasons, never commit this file)
 │
 ├── tests/              # Testing code
 │
-├── .env                # Environment variables (for security reasons, never commit this file)
 ├── .gitignore          # Ignoring files like node_modules and .env
 ├── README.md           # Project documentation (you are here)
-└── package.json        # Main project dependencies
 ```
 
 The `client/` directory contains the front-end code, and the `api/` directory contains the back-end code. The `tests/` directory contains the testing code. The `.env` file contains environment variables, and the `.gitignore` file specifies files that should not be committed to the repository.
@@ -174,7 +170,3 @@ Here are just my two cents on what we can do next:
 # Notes
 
 For now, the back-end server is not implemented. We'll update this page with instructions on how to run the back-end server once it's implemented. We can first focus on the front-end development and testing.
-
-# Meet the Team & Explore Our Project
-
-https://youtu.be/J8UfteKKMO8
