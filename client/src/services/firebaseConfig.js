@@ -13,13 +13,13 @@ import { getAuth } from "firebase/auth";
 // apiKey: process.env.REACT_APP_FIREBASE_API_KEY, ...
 // For the sake of simplicity, Yuning's sharing her Firebase credentials here.
 const firebaseConfig = {
-  apiKey: "AIzaSyCfhEMdk_cY8EumTHxwq_T3KK0IWJNR-2o",
-  authDomain: "green-nudge.firebaseapp.com",
-  projectId: "green-nudge",
-  storageBucket: "green-nudge.appspot.com",
-  messagingSenderId: "860134265683",
-  appId: "1:860134265683:web:dce7c0bdd22467f54047a6",
-  measurementId: "G-LEX9CHTJ3V"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
