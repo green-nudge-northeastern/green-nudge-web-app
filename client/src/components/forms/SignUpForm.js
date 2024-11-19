@@ -2,7 +2,17 @@ import React, { useState } from 'react';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../services/firebaseConfig'; // Import the Firebase auth object
+import AWS from 'aws-sdk'; // Import AWS SDK
 import './AuthForm.css';
+
+// Configure AWS SDK
+AWS.config.update({
+  accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
+  region: process.env.REACT_APP_AWS_REGION,
+});
+
+const dynamoDB = new AWS.DynamoDB.DocumentClient();
 
 const SignUpForm = () => {
   const [email, setEmail] = useState('');
@@ -16,12 +26,36 @@ const SignUpForm = () => {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
+      console.log('user uid:', user.uid);
+      console.log('user detail', user);
+
+      var currentUserUid = user.uid;
 
       // Update the user's profile with the full name
       await updateProfile(user, {
         displayName: fullName,
       });
 
+      // Store user data in DynamoDB
+      const params = {
+        TableName: 'Users', // Replace with your DynamoDB table name
+        Item: {
+          uid: currentUserUid,
+          fullName: fullName,
+          email: email,
+        },
+      };
+
+      await dynamoDB.put(params).promise();
+      //check if the user is in the database
+      
+      const userData = await dynamoDB.get({
+        TableName: 'Users',
+        Key: {
+          uid: currentUserUid,
+        },
+      }).promise();
+      console.log('userData:', userData);
       // Redirect to the homepage after successful sign-up
       navigate('/');
     } catch (err) {
@@ -44,8 +78,9 @@ const SignUpForm = () => {
     }
   };
 
+
   return (
-    <form className="auth-form" onSubmit={handleSubmit}>
+    <form className="auth-form" onSubmit={handleSubmit} noValidate>
       <label className="auth-label" htmlFor="fullName">Full Name</label>
       <input
         id="fullName"
@@ -83,7 +118,7 @@ const SignUpForm = () => {
       {error ? (
         <p className="auth-error-text">{error}</p>
       ) : (
-        <p className="auth-error-text" style={{ visibility: 'hidden' }}>No error</p>
+        <p className="auth-error-text" style={{ visibility: 'hidden' }}> </p>
       )}
     </form>
   );
