@@ -15,12 +15,12 @@ function HomePage() {
       <section id="about">
         <FadeInSection
           imageSrc={shapes}
-          heading="Discover a smarter way to source responsibly."
+          heading="Discover a smarter way to integrate sustainability."
           style={{ width: '1200px' }}
         >
           <p>
-            Champion a resilient supply chain that maximizes efficiency while boldly seizing 
-            market opportunities through sustainable innovation.
+          Champion a decarbonization pathway that enables informed choices early on, 
+          before making significant investments upfront.
           </p>
         </FadeInSection>
 

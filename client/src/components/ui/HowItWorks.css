@@ -73,6 +73,6 @@
 
 .howitworks-step-description {
     color: white;
-    font-size: 25px;
+    font-size: 25px !important;
     margin: 5px 0 0;
 }

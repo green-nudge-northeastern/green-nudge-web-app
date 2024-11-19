@@ -13,15 +13,15 @@ const Dashboard = () => {
             {/* Stats Section */}
             <div className="stats-section">
                 <div className="stat-card">
-                    <h2>Tasks</h2>
+                    <h2>Track <br/>Progress</h2>
                     <p>5 Pending</p>
                 </div>
                 <div className="stat-card">
-                    <h2>Progress</h2>
+                    <h2>Track <br/>Initiatives</h2>
                     <p>75% Completed</p>
                 </div>
                 <div className="stat-card">
-                    <h2>Messages</h2>
+                    <h2>Track <br/>Conversations</h2>
                     <p>3 Unread</p>
                 </div>
             </div>

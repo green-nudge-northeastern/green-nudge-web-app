@@ -16,17 +16,17 @@
   text-align: center;
 }
 
-h1 {
-  font-size: 60px;
+.section-text h1 {
+  font-size: 70px;
   margin-bottom: 20px;
 }
 
-h2 {
+.section-text h2 {
   font-size: 40px;
   margin-bottom: 20px;
 }
 
-p {
+.section-text p {
   color: white;
   font-size: 35px;
   line-height: 1.6;
