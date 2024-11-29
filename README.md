@@ -15,7 +15,11 @@ This page briefly introduces how to set up the development environment and run t
 
 # Meet the Team & Explore Our Project
 
-https://youtu.be/J8UfteKKMO8
+- [GreenNudge Project: Official Trailer](https://youtu.be/TixBm-K1ZbA)
+- [10 Minutes Detailed Video](https://youtu.be/J8UfteKKMO8)
+- [Our Research Paper](https://github.com/green-nudge-northeastern/green-nudge-web-app/blob/main/research_paper_greennudge.pdf)
+- [Get the PDF of Our Poster](https://github.com/green-nudge-northeastern/green-nudge-web-app/blob/main/GreenNudge%20YvonneCapstonePoser.pdf)
+ ![Our Poster](https://github.com/green-nudge-northeastern/green-nudge-web-app/blob/main/Poster.jpg)
 
 # Concepts and Resources
 
